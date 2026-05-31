@@ -1,0 +1,14 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+
+# Node / Vercel
+node_modules/
+.vercel
+
+# Never commit secrets or large source papers
+.env
+*.env
+banks/
+papers/
