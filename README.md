@@ -6,7 +6,7 @@ them lives in [`science-tool`](https://github.com/clairehjx/science-tool). It's 
 [Claire's website](https://github.com/clairehjx/claire-website) and uses the same dreamy
 watercolour-blue style.
 
-🔗 **Live site:** _(add your Vercel link here after you deploy)_
+🔗 **Live site:** https://science-cheatsheets.vercel.app
 
 ## The cheat sheets
 
