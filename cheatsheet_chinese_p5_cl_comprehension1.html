@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="gate.js"></script>
+  <title>P5 CL 阅读理解一 Cheat Sheet · by Claire</title>
+  <meta name="description" content="P5 Chinese Language Comprehension 1 (阅读理解一) cheat sheet — 4 question types, common traps, and a full practice passage, by Claire.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%234a90d9'/%3E%3Ccircle cx='11' cy='12' r='4' fill='%23cfe8ff'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink:#1c3a5e; --ink-soft:#4a6585; --blue:#2b6cb0; --blue-deep:#1f5290;
+      --blue-bright:#4a90d9; --sky:#a8d8ea; --wash:#cfe8ff; --mist:#e3f2fd;
+      --paper:#f4f9ff; --card:#ffffff; --lilac:#e6d9ff; --lilac-deep:#c9b3f0;
+      --shadow:0 10px 30px rgba(43,108,176,0.14); --shadow-sm:0 4px 14px rgba(43,108,176,0.12);
+      --radius:22px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family:'Nunito','Noto Sans SC', system-ui, sans-serif; color:var(--ink); line-height:1.7;
+      background-color:var(--paper);
+      background-image:
+        radial-gradient(36rem 36rem at 6% -5%, rgba(168,216,234,0.55), transparent 60%),
+        radial-gradient(30rem 30rem at 100% 6%, rgba(207,232,255,0.65), transparent 60%),
+        radial-gradient(34rem 34rem at 102% 96%, rgba(230,217,255,0.45), transparent 60%);
+      background-attachment:fixed;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh; padding:0 0 60px;
+    }
+    h1,h2,h3,.btn,.brand { font-family:'Fredoka','Nunito',sans-serif; }
+    .wrap { width:100%; max-width:820px; margin:0 auto; padding:0 22px; }
+    a { text-decoration:none; color:var(--blue); }
+
+    .topbar { padding:18px 0 0; }
+    .btn-back {
+      display:inline-flex; align-items:center; gap:7px;
+      background:rgba(255,255,255,0.8); color:var(--blue-deep);
+      font-weight:700; font-size:0.9rem; padding:9px 16px; border-radius:999px;
+      box-shadow:var(--shadow-sm); transition:transform .12s, background .15s;
+    }
+    .btn-back:hover { transform:translateX(-3px); background:#fff; }
+
+    .hero { text-align:center; padding:32px 0 22px; }
+    .eyebrow {
+      display:inline-block; background:#fff; color:var(--blue); font-weight:800;
+      font-size:.8rem; letter-spacing:.6px; text-transform:uppercase;
+      padding:6px 14px; border-radius:999px; box-shadow:var(--shadow-sm); margin-bottom:16px;
+    }
+    .hero h1 { font-size:clamp(1.6rem,5vw,2.5rem); color:var(--ink); line-height:1.25; }
+    .hero p { color:var(--ink-soft); font-weight:600; max-width:50ch; margin:14px auto 0; }
+
+    .card {
+      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:26px 28px; margin-top:24px;
+    }
+    .card h2 { color:var(--blue-deep); font-size:1.35rem; margin-bottom:6px; }
+    .card h2 .em { margin-right:8px; }
+    .card h3 { color:var(--ink); font-size:1.05rem; margin:18px 0 8px; }
+    .card p { margin:8px 0; }
+    .card ul, .card ol { margin:8px 0 8px 22px; }
+    .card li { margin:5px 0; }
+
+    .overview-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:14px; }
+    .overview-grid .stat { background:var(--mist); border-radius:14px; padding:12px 14px; }
+    .overview-grid .stat .label { font-size:.75rem; font-weight:800; color:var(--blue); text-transform:uppercase; letter-spacing:.4px; }
+    .overview-grid .stat .value { font-weight:700; margin-top:3px; }
+
+    table { width:100%; border-collapse:collapse; margin:12px 0; }
+    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--mist); }
+    th { color:var(--blue-deep); font-size:.85rem; text-transform:uppercase; letter-spacing:.3px; }
+
+    .pill-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+    .pill { background:var(--wash); color:var(--blue-deep); font-weight:700; font-size:.85rem; padding:6px 13px; border-radius:999px; }
+    .pill.lilac { background:var(--lilac); color:#5b3a9e; }
+
+    .passage-box {
+      background:var(--paper); border:2px solid var(--wash); border-radius:18px;
+      padding:18px 20px; margin:14px 0;
+    }
+
+    .type-box {
+      background:var(--mist); border-radius:16px; padding:14px 18px; margin:10px 0;
+    }
+    .type-box .title { font-weight:800; color:var(--blue-deep); margin-bottom:4px; }
+
+    .trap-box {
+      background:linear-gradient(135deg,#ffe3e8,#ffc9d4); border-radius:16px;
+      padding:14px 18px; margin-top:10px;
+    }
+    .trap-box .title { font-weight:800; color:#9e2a44; margin-bottom:6px; }
+
+    .quiz-item { margin:14px 0; }
+    .quiz-item .q { font-weight:700; margin-bottom:6px; }
+    .quiz-item ul { list-style:none; margin:0; }
+    .quiz-item li { margin:3px 0; }
+
+    .answer-box {
+      background:linear-gradient(135deg,#e6fff0,#c9f5da); border-radius:16px;
+      padding:14px 18px; margin-top:14px;
+    }
+    .answer-box .title { font-weight:800; color:#1e7a4c; margin-bottom:6px; }
+    .answer-box strong { color:#1e7a4c; }
+
+    .tip-list li::marker { color:var(--blue); font-weight:800; }
+
+    footer { text-align:center; color:var(--ink-soft); font-weight:600; margin-top:40px; }
+    footer a { font-weight:800; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="btn-back" href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a>
+    </div>
+
+    <header class="hero">
+      <span class="eyebrow">🀄 Chinese Cheat Sheet</span>
+      <h1>P5 阅读理解一<br>Comprehension 1</h1>
+      <p>2025 WA3 &amp; EOY revision — the 4 question types, common MCQ traps, and a full practice passage.</p>
+    </header>
+
+    <section class="card">
+      <h2><span class="em">📋</span>Exam Format &amp; Time</h2>
+      <table>
+        <tr><th>Section</th><th>Questions</th><th>Marks</th><th>Type</th><th>Time</th></tr>
+        <tr><td>阅读理解一</td><td>5</td><td>10</td><td>多项选择题 (MCQ)</td><td>10分钟内</td></tr>
+      </table>
+      <p>每题2分，共5题。虽然只有5题，但因为是选择题，往往暗藏陷阱，需要细心比对。</p>
+    </section>
+
+    <section class="card">
+      <h2><span class="em">📈</span>2025年出题趋势</h2>
+      <ol class="tip-list">
+        <li><strong>篇章字数精简但内涵加深</strong>：文章长度约200–250字，句子结构更复杂，需要理解言外之意</li>
+        <li><strong>四字词语/成语考查增加</strong>：如灵机一动、无人问津、恍然大悟，并针对这些词语出题</li>
+        <li><strong>注重"同理心"与"解决问题"</strong>：主题集中在校园生活、社区服务、家庭误会</li>
+        <li><strong>选项更具迷惑性</strong>：错误选项是"半真半假"，而非完全无关</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2><span class="em">🎯</span>四大核心题型与破解技巧</h2>
+
+      <div class="type-box">
+        <p class="title">题型一：细节理解题（约占2题）</p>
+        <p><strong>问法：</strong>根据短文，谁/什么时候/在哪里/做了什么？</p>
+        <p><strong>破解技巧：</strong>"关键词定位法" — 圈出题目中的关键词（人名、时间、地点），回到原文找到对应的句子。注意同义替换（原文说"清晨"，选项可能是"天刚亮"）。</p>
+      </div>
+
+      <div class="type-box">
+        <p class="title">题型二：词义理解题（约占1题）</p>
+        <p><strong>问法：</strong>短文中"……"的意思是什么？/ 画线词语指的是什么？</p>
+        <p><strong>破解技巧：</strong>"代入排除法" — 不要只看字面意思，联系上下文。把四个选项分别代入原文画线处，读起来最通顺、最符合逻辑的就是正确答案。</p>
+      </div>
+
+      <div class="type-box">
+        <p class="title">题型三：推理判断题（约占1–2题）</p>
+        <p><strong>问法：</strong>为什么……？/ 从文中可以看出某某是个怎样的人？/ 接下来可能会发生什么？</p>
+        <p><strong>破解技巧：</strong>"线索追踪法" — 答案必须基于文中的动作、表情、语言。例如：文中写"他握紧了拳头，咬着嘴唇"，推断出他"很生气/在忍耐"，而不是"他很冷"。</p>
+      </div>
+
+      <div class="type-box">
+        <p class="title">题型四：主旨/启示题（约占0–1题）</p>
+        <p><strong>问法：</strong>这篇短文告诉我们什么道理？/ 最适合的标题是什么？</p>
+        <p><strong>破解技巧：</strong>"首尾聚焦法" — 重点关注文章的第一句（背景引入）和最后一句（总结感悟）。道理题通常与"品德、成长、亲情"有关。</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="em">⚠️</span>常见陷阱大揭秘</h2>
+      <div class="trap-box">
+        <p class="title">1. 偷换概念</p>
+        <p>原文："<strong>有些</strong>同学参加了比赛。" 选项："<strong>所有</strong>同学都参加了比赛。"（❌ 错在绝对化词语：所有、一定、全部）</p>
+      </div>
+      <div class="trap-box">
+        <p class="title">2. 答非所问</p>
+        <p>题目：小明<strong>为什么</strong>迟到？ 选项：小明<strong>气喘吁吁地</strong>跑进教室。（❌ 这是"怎么迟到/迟到的表现"，不是"原因"）</p>
+      </div>
+      <div class="trap-box">
+        <p class="title">3. 无中生有</p>
+        <p>选项内容在常识上是对的，但短文中完全没有提到。切记：答案必须在文中！</p>
+      </div>
+      <div class="trap-box">
+        <p class="title">4. 因果倒置</p>
+        <p>原文：因为下大雨，所以比赛取消了。 选项：比赛取消了，因此下大雨。（❌ 逻辑反了）</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="em">📝</span>2025真题风格模拟演练</h2>
+      <p>以下模拟篇章和题目按照2025年WA3/EOY的难度和主题（校园爱心义卖/解决问题）编写。</p>
+      <div class="passage-box">
+        <p>学校举行了一年一度的"爱心义卖会"。小明负责班级的摊位，他带了自己最心爱的漫画书来卖。一开始，生意冷清，小明感到有些失望。这时，他看到隔壁班的小华正努力地推销手工饼干，但<strong>无人问津</strong>。小明<strong>灵机一动</strong>，向老师提议："我们可以把漫画书和饼干捆绑销售，买饼干送漫画书借阅券！"老师赞同了他的想法。果然，摊位前很快排起了长龙。活动结束时，小明虽然没卖出漫画书，但看到班级筹得的善款最多，他心里比吃了蜜还甜。</p>
+      </div>
+
+      <div class="quiz-item">
+        <p class="q">Q1. 义卖会一开始，小明为什么感到失望？</p>
+        <ul>
+          <li>A. 因为他的漫画书破了。</li>
+          <li>B. 因为没有人来买他的漫画书。</li>
+          <li>C. 因为小华不让他帮忙。</li>
+          <li>D. 因为老师批评了他。</li>
+        </ul>
+      </div>
+      <div class="quiz-item">
+        <p class="q">Q2. 短文中"无人问津"的意思是什么？</p>
+        <ul>
+          <li>A. 没有人问问题。</li>
+          <li>B. 没有人来买东西。</li>
+          <li>C. 没有人喜欢小华。</li>
+          <li>D. 没有人知道在哪里。</li>
+        </ul>
+      </div>
+      <div class="quiz-item">
+        <p class="q">Q3. 小明提出了什么建议？</p>
+        <ul>
+          <li>A. 免费送漫画书。</li>
+          <li>B. 把漫画书和饼干一起卖。</li>
+          <li>C. 让小华帮他卖漫画书。</li>
+          <li>D. 去别的班级推销。</li>
+        </ul>
+      </div>
+      <div class="quiz-item">
+        <p class="q">Q4. 从文中可以看出小明是个怎样的学生？</p>
+        <ul>
+          <li>A. 自私自利，只关心自己。</li>
+          <li>B. 粗心大意，经常犯错。</li>
+          <li>C. 聪明机智，懂得合作。</li>
+          <li>D. 胆小怕事，不敢发言。</li>
+        </ul>
+      </div>
+      <div class="quiz-item">
+        <p class="q">Q5. 为什么小明最后"心里比吃了蜜还甜"？</p>
+        <ul>
+          <li>A. 因为他卖出了所有的漫画书。</li>
+          <li>B. 因为他吃到了小华的饼干。</li>
+          <li>C. 因为他体会到了帮助他人和团队合作的快乐。</li>
+          <li>D. 因为老师奖励了他一本新书。</li>
+        </ul>
+      </div>
+
+      <div class="answer-box">
+        <p class="title">💡 模拟卷答案解析</p>
+        <p><strong>Q1: B</strong>（细节题。原文"生意冷清"，说明没人买。A/C/D文中未提及。）</p>
+        <p><strong>Q2: B</strong>（词义题。"无人问津"指没有人来探问、尝试或购买。结合上下文小华在推销饼干，故选B。）</p>
+        <p><strong>Q3: B</strong>（细节题。原文"把漫画书和饼干捆绑销售"。）</p>
+        <p><strong>Q4: C</strong>（推断题。小明能想到"捆绑销售"的办法，并帮助小华，说明他聪明且懂得合作。）</p>
+        <p><strong>Q5: C</strong>（推断/主旨题。原文"没卖出漫画书"排除A；"比吃了蜜还甜"是比喻，指精神上的满足，即为班级筹得善款的成就感。）</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="em">🚀</span>考场高分口诀</h2>
+      <ol class="tip-list">
+        <li><strong>先读题目再读文</strong>，带着问题找答案</li>
+        <li><strong>关键词儿要圈出</strong>，回到原文对一对</li>
+        <li><strong>遇到成语别害怕</strong>，联系上下文代入它</li>
+        <li><strong>绝对词语要小心</strong>（所有、一定、必须），答非所问是陷阱</li>
+        <li><strong>时间控制在十分</strong>，检查一遍最安心</li>
+      </ol>
+    </section>
+
+    <footer>
+      <p>Made by Claire · <a href="https://claire-hjx.vercel.app/index.html">back to home</a></p>
+    </footer>
+  </div>
+</body>
+</html>
