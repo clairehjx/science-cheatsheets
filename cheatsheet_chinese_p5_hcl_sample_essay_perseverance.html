@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="gate.js"></script>
+  <title>P5 HCL 范文：这一次我坚持到了最后 · by Claire</title>
+  <meta name="description" content="P5 Higher Chinese sample essay — 这一次我坚持到了最后 (perseverance), fully annotated with pinyin, vocab table, and scoring commentary, by Claire.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%234a90d9'/%3E%3Ccircle cx='11' cy='12' r='4' fill='%23cfe8ff'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink:#1c3a5e; --ink-soft:#4a6585; --blue:#2b6cb0; --blue-deep:#1f5290;
+      --blue-bright:#4a90d9; --sky:#a8d8ea; --wash:#cfe8ff; --mist:#e3f2fd;
+      --paper:#f4f9ff; --card:#ffffff; --lilac:#e6d9ff; --lilac-deep:#c9b3f0;
+      --shadow:0 10px 30px rgba(43,108,176,0.14); --shadow-sm:0 4px 14px rgba(43,108,176,0.12);
+      --radius:22px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family:'Nunito','Noto Sans SC', system-ui, sans-serif; color:var(--ink); line-height:1.7;
+      background-color:var(--paper);
+      background-image:
+        radial-gradient(36rem 36rem at 6% -5%, rgba(168,216,234,0.55), transparent 60%),
+        radial-gradient(30rem 30rem at 100% 6%, rgba(207,232,255,0.65), transparent 60%),
+        radial-gradient(34rem 34rem at 102% 96%, rgba(230,217,255,0.45), transparent 60%);
+      background-attachment:fixed;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh; padding:0 0 60px;
+    }
+    h1,h2,h3,.btn,.brand { font-family:'Fredoka','Nunito',sans-serif; }
+    .wrap { width:100%; max-width:820px; margin:0 auto; padding:0 22px; }
+    a { text-decoration:none; color:var(--blue); }
+
+    .topbar { padding:18px 0 0; }
+    .btn-back {
+      display:inline-flex; align-items:center; gap:7px;
+      background:rgba(255,255,255,0.8); color:var(--blue-deep);
+      font-weight:700; font-size:0.9rem; padding:9px 16px; border-radius:999px;
+      box-shadow:var(--shadow-sm); transition:transform .12s, background .15s;
+    }
+    .btn-back:hover { transform:translateX(-3px); background:#fff; }
+
+    .hero { text-align:center; padding:32px 0 22px; }
+    .eyebrow {
+      display:inline-block; background:#fff; color:var(--blue); font-weight:800;
+      font-size:.8rem; letter-spacing:.6px; text-transform:uppercase;
+      padding:6px 14px; border-radius:999px; box-shadow:var(--shadow-sm); margin-bottom:16px;
+    }
+    .hero h1 { font-size:clamp(1.6rem,5vw,2.5rem); color:var(--ink); line-height:1.25; }
+    .hero p { color:var(--ink-soft); font-weight:600; max-width:50ch; margin:14px auto 0; }
+
+    .card {
+      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:26px 28px; margin-top:24px;
+    }
+    .card h2 { color:var(--blue-deep); font-size:1.35rem; margin-bottom:6px; }
+    .card h2 .em { margin-right:8px; }
+    .card h3 { color:var(--ink); font-size:1.05rem; margin:18px 0 8px; }
+    .card p { margin:8px 0; }
+    .card ul, .card ol { margin:8px 0 8px 22px; }
+    .card li { margin:5px 0; }
+
+    .pill-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+    .pill { background:var(--wash); color:var(--blue-deep); font-weight:700; font-size:.85rem; padding:6px 13px; border-radius:999px; }
+
+    .essay {
+      background:var(--paper); border:2px solid var(--wash); border-radius:18px;
+      padding:18px 20px; margin:14px 0;
+    }
+    .essay .zh { margin-bottom:6px; }
+
+    .essay-meta { background:var(--mist); border-radius:14px; padding:12px 16px; margin:10px 0 16px; font-size:.9rem; }
+    .essay-meta p { margin:2px 0; }
+    .essay-meta .label { font-weight:800; color:var(--blue-deep); }
+
+    .note-box { background:var(--lilac); border-radius:12px; padding:10px 16px; margin:-6px 0 16px; font-size:.86rem; color:#4a3878; }
+
+    .word-count { text-align:right; color:var(--ink-soft); font-size:.85rem; font-style:italic; margin-top:-4px; }
+
+    .data-table { width:100%; border-collapse:collapse; margin:14px 0 20px; font-size:.85rem; }
+    .data-table th, .data-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--wash); vertical-align:top; }
+    .data-table th { background:var(--mist); color:var(--blue-deep); font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.3px; }
+    .data-table tr:last-child td { border-bottom:none; }
+    .data-table td:first-child { font-weight:700; white-space:nowrap; }
+
+    .good-lines { margin:8px 0 8px 22px; }
+    .good-lines li { margin:6px 0; }
+
+    footer { text-align:center; color:var(--ink-soft); font-weight:600; margin-top:40px; }
+    footer a { font-weight:800; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="btn-back" href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a>
+    </div>
+
+    <header class="hero">
+      <span class="eyebrow">🀄 Chinese Cheat Sheet · Sample Essay</span>
+      <h1>范文：这一次我坚持到了最后</h1>
+      <p>P5 Higher Chinese — a real past-year exam essay on perseverance, fully annotated with pinyin, vocab table, and scoring commentary.</p>
+    </header>
+
+    <section class="card">
+      <p class="pill-row">
+        <span class="pill">这一次我坚持到了最后</span><span class="pill">我战胜了困难</span>
+        <span class="pill">坚持是可贵的</span>
+      </p>
+
+      <div class="essay-meta">
+        <p><span class="label">来源：</span>南华小学 2025 P5 高级华文年终考试 试卷一 Q1</p>
+        <p><span class="label">题目：</span>这一次我坚持到了最后 — 你以前很怕困难，每次遇到困难都会放弃。有一次你遇到了一件事，你决定改变，坚持到了最后。这件事让你明白了坚持的可贵。</p>
+      </div>
+
+      <h3>📖 正文（附拼音与注释）</h3>
+      <div class="essay">
+        <p class="zh">以前的我，是一个遇到困难就退缩（tuìsuō · retreat, shrink back）的人。不管是难解（nánjiě · hard to solve）的数学题，还是学不会的脚踏车（jiǎotàchē · bicycle），只要觉得辛苦，我就会告诉自己："算了吧，反正我也做不到。"</p>
+
+        <p class="zh">五年级上学期，学校宣布要举行越野跑（yuèyěpǎo · cross-country run）比赛。体育老师鼓励全班参加，还特别瞪了我一眼说："你的体力不错，试试看吧！"我本想拒绝（jùjué · refuse），但看到同学们期待（qīdài · expectant, hopeful）的目光，不知哪来的勇气，竟然鬼使神差（guǐ shǐ shén chāi · as if pushed by invisible forces; inexplicably, without knowing why）地点了头。</p>
+
+        <div class="note-box">💡 <strong>鬼使神差</strong> — 形容做事不由自主，好像有鬼神在暗中支配。这里指"我"自己都不知道为什么会答应。</div>
+
+        <p class="zh">报名后的第一天，爸爸就带我去公园练习。刚跑了不到五百米，我就气喘吁吁（qìchuǎn xūxū · panting and gasping for breath），双腿像灌了铅（guàn le qiān · as if filled with lead — legs feel extremely heavy）一样沉重。"我不行了！"我一屁股（yī pìgu · plop down, sit down heavily）坐在地上。爸爸没有勉强（miǎnqiǎng · force, compel）我，只是平静地说："你不用跑很快，只要不停下来就好。"</p>
+
+        <div class="note-box">💡 <strong>气喘吁吁</strong> — 形容呼吸急促、大声喘气的样子。"吁吁"是喘气的声音。<br>💡 <strong>灌了铅</strong> — 比喻双腿非常沉重，像被灌入了铅一样走不动。</div>
+
+        <p class="zh">接下来的两个星期，我每天放学后都去公园练习。一开始，我跑跑停停，总是坚持不了全程。有时候膝盖（xīgài · knee）酸痛（suāntòng · sore and achy），有时候汗水流进眼睛里，难受极了。每当想放弃的时候，我就会想起爸爸说的那句话——"不用跑很快，只要不停下来就好。"于是，我咬紧牙关（yǎo jǐn yáguān · clench one's teeth; grit one's teeth and persevere），一步一步地往前跑。</p>
+
+        <div class="note-box">💡 <strong>咬紧牙关</strong> — 形容下定决心、忍受困难坚持下去。</div>
+
+        <p class="zh">比赛那天，阳光灿烂，操场上挤满了人。枪声一响，我随着人群冲了出去。跑到一半时，我的呼吸变得急促（jícù · rapid, hurried），双腿越来越沉，有好几次差点停下来。但我告诉自己："不要停，一步一步来！"我调整（tiáozhěng · adjust）呼吸，放慢脚步，眼睛只盯着（dīng zhe · stare at, fix eyes on）前方。</p>
+
+        <p class="zh">终于，我看到了终点线（zhōngdiǎnxiàn · finish line）！我使出最后的力气冲了过去。虽然名次不算靠前，但当我跨过终点的那一刻，心里充满了前所未有（qián suǒ wèi yǒu · unprecedented; a feeling never experienced before）的成就感（chéngjiùgǎn · sense of achievement）。爸爸在终点向我竖起大拇指（shù qǐ dàmǔzhǐ · give a thumbs up — a gesture of praise），笑得比我还开心。</p>
+
+        <div class="note-box">💡 <strong>前所未有</strong> — 以前从来没有过。形容感觉非常新鲜、强烈。<br>💡 <strong>竖起大拇指</strong> — 中国人用竖大拇指表示称赞、夸奖。</div>
+
+        <p class="zh">这一次，我没有放弃，坚持到了最后。这件事让我明白了一个道理：困难并不可怕，可怕的是还没尝试就选择放弃。只要坚持不懈（jiānchí bùxiè · persevere without giving up; persistent and unremitting），就一定能看到终点的光。</p>
+
+        <div class="note-box">💡 <strong>坚持不懈</strong> — 坚持到底，一点不松懈。"懈"是松懈、放松的意思。</div>
+
+        <p class="word-count">字数：约 480 字</p>
+      </div>
+
+      <h3>📚 生词总表</h3>
+      <table class="data-table">
+        <thead><tr><th>词语</th><th>拼音</th><th>英文</th><th>类型</th></tr></thead>
+        <tbody>
+          <tr><td>退缩</td><td>tuìsuō</td><td>retreat, shrink back</td><td>动词</td></tr>
+          <tr><td>难解</td><td>nánjiě</td><td>hard to solve</td><td>形容词</td></tr>
+          <tr><td>脚踏车</td><td>jiǎotàchē</td><td>bicycle</td><td>名词</td></tr>
+          <tr><td>越野跑</td><td>yuèyěpǎo</td><td>cross-country run</td><td>名词</td></tr>
+          <tr><td>拒绝</td><td>jùjué</td><td>refuse, reject</td><td>动词</td></tr>
+          <tr><td>期待</td><td>qīdài</td><td>expectant, hopeful</td><td>形容词/动词</td></tr>
+          <tr><td>鬼使神差</td><td>guǐ shǐ shén chāi</td><td>as if driven by invisible forces; inexplicably</td><td>🆎 成语</td></tr>
+          <tr><td>气喘吁吁</td><td>qìchuǎn xūxū</td><td>panting, gasping for breath</td><td>🆎 成语</td></tr>
+          <tr><td>灌了铅</td><td>guàn le qiān</td><td>as if filled with lead (heavy legs)</td><td>🆎 比喻</td></tr>
+          <tr><td>一屁股</td><td>yī pìgu</td><td>plop down, sit heavily</td><td>口语</td></tr>
+          <tr><td>勉强</td><td>miǎnqiǎng</td><td>force, compel</td><td>动词</td></tr>
+          <tr><td>膝盖</td><td>xīgài</td><td>knee</td><td>名词</td></tr>
+          <tr><td>酸痛</td><td>suāntòng</td><td>sore and achy</td><td>形容词</td></tr>
+          <tr><td>咬紧牙关</td><td>yǎo jǐn yáguān</td><td>clench one's teeth; grit teeth and persevere</td><td>🆎 成语</td></tr>
+          <tr><td>急促</td><td>jícù</td><td>rapid, hurried</td><td>形容词</td></tr>
+          <tr><td>调整</td><td>tiáozhěng</td><td>adjust</td><td>动词</td></tr>
+          <tr><td>盯着</td><td>dīng zhe</td><td>stare at, fix eyes on</td><td>动词</td></tr>
+          <tr><td>终点线</td><td>zhōngdiǎnxiàn</td><td>finish line</td><td>名词</td></tr>
+          <tr><td>前所未有</td><td>qián suǒ wèi yǒu</td><td>unprecedented, never before seen</td><td>🆎 成语</td></tr>
+          <tr><td>成就感</td><td>chéngjiùgǎn</td><td>sense of achievement</td><td>名词</td></tr>
+          <tr><td>竖起大拇指</td><td>shù qǐ dàmǔzhǐ</td><td>give a thumbs up</td><td>🆎 惯用语</td></tr>
+          <tr><td>坚持不懈</td><td>jiānchí bùxiè</td><td>persevere without giving up</td><td>🆎 成语</td></tr>
+        </tbody>
+      </table>
+
+      <h3>📝 点评</h3>
+      <table class="data-table">
+        <thead><tr><th>评分项</th><th>表现</th></tr></thead>
+        <tbody>
+          <tr><td>扣题</td><td>✅ 开头点明"怕困难就放弃"，结尾点明"坚持的可贵"</td></tr>
+          <tr><td>结构</td><td>✅ 五段式：过去→起因→经过→结果→感悟</td></tr>
+          <tr><td>心理描写</td><td>✅ "算了吧"、"不要停，一步一步来"</td></tr>
+          <tr><td>动作描写</td><td>✅ 气喘吁吁、双腿像灌了铅、咬紧牙关</td></tr>
+          <tr><td>对话</td><td>✅ 爸爸的话成为贯穿全文的线索</td></tr>
+          <tr><td>前后对比</td><td>✅ 从"一屁股坐在地上"到"冲过终点线"</td></tr>
+          <tr><td>点题</td><td>✅ 结尾直接回应"坚持的可贵"</td></tr>
+        </tbody>
+      </table>
+
+      <h3>🌟 可借鉴的好句</h3>
+      <ul class="good-lines">
+        <li>"双腿像灌了铅一样沉重"（比喻）</li>
+        <li>"不用跑很快，只要不停下来就好"（金句线索）</li>
+        <li>"困难并不可怕，可怕的是还没尝试就选择放弃"（哲理结尾）</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p><a href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a></p>
+    </footer>
+  </div>
+</body>
+</html>
