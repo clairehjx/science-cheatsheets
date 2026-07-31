@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="gate.js"></script>
+  <title>P5 HCL 范文2：我明白了什么是真正的友情 · by Claire</title>
+  <meta name="description" content="P5 Higher Chinese sample essay — 我明白了什么是真正的友情 (true friendship), fully annotated with pinyin, vocab table, and scoring commentary, by Claire.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%234a90d9'/%3E%3Ccircle cx='11' cy='12' r='4' fill='%23cfe8ff'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink:#1c3a5e; --ink-soft:#4a6585; --blue:#2b6cb0; --blue-deep:#1f5290;
+      --blue-bright:#4a90d9; --sky:#a8d8ea; --wash:#cfe8ff; --mist:#e3f2fd;
+      --paper:#f4f9ff; --card:#ffffff; --lilac:#e6d9ff; --lilac-deep:#c9b3f0;
+      --shadow:0 10px 30px rgba(43,108,176,0.14); --shadow-sm:0 4px 14px rgba(43,108,176,0.12);
+      --radius:22px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family:'Nunito','Noto Sans SC', system-ui, sans-serif; color:var(--ink); line-height:1.7;
+      background-color:var(--paper);
+      background-image:
+        radial-gradient(36rem 36rem at 6% -5%, rgba(168,216,234,0.55), transparent 60%),
+        radial-gradient(30rem 30rem at 100% 6%, rgba(207,232,255,0.65), transparent 60%),
+        radial-gradient(34rem 34rem at 102% 96%, rgba(230,217,255,0.45), transparent 60%);
+      background-attachment:fixed;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh; padding:0 0 60px;
+    }
+    h1,h2,h3,.btn,.brand { font-family:'Fredoka','Nunito',sans-serif; }
+    .wrap { width:100%; max-width:820px; margin:0 auto; padding:0 22px; }
+    a { text-decoration:none; color:var(--blue); }
+
+    .topbar { padding:18px 0 0; }
+    .btn-back {
+      display:inline-flex; align-items:center; gap:7px;
+      background:rgba(255,255,255,0.8); color:var(--blue-deep);
+      font-weight:700; font-size:0.9rem; padding:9px 16px; border-radius:999px;
+      box-shadow:var(--shadow-sm); transition:transform .12s, background .15s;
+    }
+    .btn-back:hover { transform:translateX(-3px); background:#fff; }
+
+    .hero { text-align:center; padding:32px 0 22px; }
+    .eyebrow {
+      display:inline-block; background:#fff; color:var(--blue); font-weight:800;
+      font-size:.8rem; letter-spacing:.6px; text-transform:uppercase;
+      padding:6px 14px; border-radius:999px; box-shadow:var(--shadow-sm); margin-bottom:16px;
+    }
+    .hero h1 { font-size:clamp(1.6rem,5vw,2.5rem); color:var(--ink); line-height:1.25; }
+    .hero p { color:var(--ink-soft); font-weight:600; max-width:50ch; margin:14px auto 0; }
+
+    .card {
+      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:26px 28px; margin-top:24px;
+    }
+    .card h2 { color:var(--blue-deep); font-size:1.35rem; margin-bottom:6px; }
+    .card h2 .em { margin-right:8px; }
+    .card h3 { color:var(--ink); font-size:1.05rem; margin:18px 0 8px; }
+    .card p { margin:8px 0; }
+    .card ul, .card ol { margin:8px 0 8px 22px; }
+    .card li { margin:5px 0; }
+
+    .pill-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+    .pill { background:var(--wash); color:var(--blue-deep); font-weight:700; font-size:.85rem; padding:6px 13px; border-radius:999px; }
+
+    .essay {
+      background:var(--paper); border:2px solid var(--wash); border-radius:18px;
+      padding:18px 20px; margin:14px 0;
+    }
+    .essay .zh { margin-bottom:6px; }
+
+    .essay-meta { background:var(--mist); border-radius:14px; padding:12px 16px; margin:10px 0 16px; font-size:.9rem; }
+    .essay-meta p { margin:2px 0; }
+    .essay-meta .label { font-weight:800; color:var(--blue-deep); }
+
+    .note-box { background:var(--lilac); border-radius:12px; padding:10px 16px; margin:-6px 0 16px; font-size:.86rem; color:#4a3878; }
+
+    .word-count { text-align:right; color:var(--ink-soft); font-size:.85rem; font-style:italic; margin-top:-4px; }
+
+    .data-table { width:100%; border-collapse:collapse; margin:14px 0 20px; font-size:.85rem; }
+    .data-table th, .data-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--wash); vertical-align:top; }
+    .data-table th { background:var(--mist); color:var(--blue-deep); font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.3px; }
+    .data-table tr:last-child td { border-bottom:none; }
+    .data-table td:first-child { font-weight:700; white-space:nowrap; }
+
+    .good-lines { margin:8px 0 8px 22px; }
+    .good-lines li { margin:6px 0; }
+
+    footer { text-align:center; color:var(--ink-soft); font-weight:600; margin-top:40px; }
+    footer a { font-weight:800; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="btn-back" href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a>
+    </div>
+
+    <header class="hero">
+      <span class="eyebrow">🀄 Chinese Cheat Sheet · Sample Essay</span>
+      <h1>范文2：我明白了什么是真正的友情</h1>
+      <p>P5 Higher Chinese — a real past-year exam essay on true friendship, fully annotated with pinyin, vocab table, and scoring commentary.</p>
+    </header>
+
+    <section class="card">
+      <p class="pill-row">
+        <span class="pill">我明白了真正的友情</span><span class="pill">又气又委屈</span>
+        <span class="pill">互相帮助，共同进步</span>
+      </p>
+
+      <div class="essay-meta">
+        <p><span class="label">来源：</span>菩提学校 2025 P5 高级华文年终考试 试卷一 Q1</p>
+        <p><span class="label">题目：</span>我明白了什么是真正的友情 — 你有一个好朋友。有一次，你们之间发生了一件不愉快的事。事后你才发现他/她这么做是为了你好。这件事让你明白了什么才是真正的友情。</p>
+      </div>
+
+      <h3>📖 正文（附拼音与注释）</h3>
+      <div class="essay">
+        <p class="zh">小琳是我从小一起长大的好朋友，我们无话不谈（wú huà bù tán · 🆎 tell each other everything; share all secrets），形影不离（xíng yǐng bù lí · 🆎 inseparable, like body and shadow）。我一直以为，真正的朋友就是什么都顺着（shùnzhe · go along with, accommodate）对方，永远站在自己这一边。直到那件事发生，我才明白自己对友情的理解有多肤浅（fūqiǎn · superficial, shallow）。</p>
+
+        <div class="note-box">💡 <strong>无话不谈</strong> — 没有不说的话，形容彼此之间非常信任，什么话题都能聊。<br>💡 <strong>形影不离</strong> — 像身体和影子一样分不开，形容关系非常亲密。</div>
+
+        <p class="zh">五年级上学期，学校要选拔（xuǎnbá · select, choose）学生代表参加华文演讲比赛。我和小琳都报名了。接下来的一个星期，我每天放学后都留在学校练习，小琳也陪我一起。她帮我纠正（jiūzhèng · correct, fix）发音，还给我提了很多建议。</p>
+
+        <p class="zh">比赛前一天，老师安排了一次模拟（mónǐ · mock, simulate）演讲。我站在台上，紧张得手心冒汗。刚讲了两句，小琳突然举手说："老师，我觉得她的开场白（kāichǎngbái · opening remarks）不够吸引人，应该换一个。"我愣住（lèngzhù · stunned, frozen）了，没想到她会在这么多人面前指出我的缺点。我心里又气又委屈（wěiqu · feel wronged, grievance），觉得她故意让我难堪（nánkān · embarrassed, humiliated）。</p>
+
+        <div class="note-box">💡 <strong>委屈</strong> — 受到不公平的对待或误解时的心情。这里指"我"觉得小琳不应该当众批评自己。<br>💡 <strong>难堪</strong> — 形容非常尴尬、丢脸的感觉。</div>
+
+        <p class="zh">下课后，我没有等小琳，一个人气冲冲（qìchōngchōng · angrily, in a huff）地回家了。第二天比赛时，我故意避开她，连"加油"都没跟她说。比赛结束后，我得了第二名，小琳得了第一名。看着她举起奖杯的样子，我心里更不是滋味（bú shì zīwèi · 🆎 feel bad, uncomfortable; a bitter feeling）了。</p>
+
+        <div class="note-box">💡 <strong>气冲冲</strong> — 形容非常生气的样子，"冲冲"表示情绪很激动。<br>💡 <strong>不是滋味</strong> — 心里不舒服、不好受的感觉，通常是因为嫉妒或难过。</div>
+
+        <p class="zh">回到家后，妈妈看出了我的不开心，问我怎么了。我把事情经过告诉了她。妈妈沉默（chénmò · silent, quiet）了一会儿，说："你觉得小琳为什么要指出你的问题？她是想让你难堪，还是真的想帮你进步？"我愣住了。仔细回想，小琳每次陪我练习时都很认真，她提出的建议也确实让我的演讲进步了不少。她指出我的问题，不是为了让我丢脸，而是希望我能做得更好。</p>
+
+        <p class="zh">第二天到学校，我主动找到小琳，小声说："对不起，我不该生你的气。谢谢你指出我的问题。"小琳笑了笑，说："傻瓜，我们是朋友啊！真正的朋友就应该互相帮助，共同进步。"听了她的话，我心里暖暖的，也明白了什么是真正的友情。真正的朋友不是一味（yīwèi · blindly；一味地 = without thinking）地迎合（yínghé · cater to, please others）你，而是在你需要的时候，勇敢地指出你的不足，帮助你变得更好。这样的友情，才值得珍惜。</p>
+
+        <div class="note-box">💡 <strong>一味迎合</strong> — 盲目地讨好别人，没有自己的原则。这里指真正的朋友不是一味地顺从你。</div>
+
+        <p class="word-count">字数：约 520 字</p>
+      </div>
+
+      <h3>📚 生词总表</h3>
+      <table class="data-table">
+        <thead><tr><th>词语</th><th>拼音</th><th>英文</th><th>类型</th></tr></thead>
+        <tbody>
+          <tr><td>无话不谈</td><td>wú huà bù tán</td><td>tell each other everything; share all secrets</td><td>🆎 成语</td></tr>
+          <tr><td>形影不离</td><td>xíng yǐng bù lí</td><td>inseparable; like body and shadow</td><td>🆎 成语</td></tr>
+          <tr><td>顺着</td><td>shùnzhe</td><td>go along with, accommodate</td><td>动词</td></tr>
+          <tr><td>肤浅</td><td>fūqiǎn</td><td>superficial, shallow</td><td>形容词</td></tr>
+          <tr><td>选拔</td><td>xuǎnbá</td><td>select, choose</td><td>动词</td></tr>
+          <tr><td>纠正</td><td>jiūzhèng</td><td>correct, fix</td><td>动词</td></tr>
+          <tr><td>模拟</td><td>mónǐ</td><td>mock, simulate</td><td>动词/形容词</td></tr>
+          <tr><td>开场白</td><td>kāichǎngbái</td><td>opening remarks</td><td>名词</td></tr>
+          <tr><td>愣住</td><td>lèngzhù</td><td>stunned, frozen</td><td>动词</td></tr>
+          <tr><td>委屈</td><td>wěiqu</td><td>feel wronged, grievance</td><td>形容词/名词</td></tr>
+          <tr><td>难堪</td><td>nánkān</td><td>embarrassed, humiliated</td><td>形容词</td></tr>
+          <tr><td>气冲冲</td><td>qìchōngchōng</td><td>angrily, in a huff</td><td>形容词</td></tr>
+          <tr><td>不是滋味</td><td>bú shì zīwèi</td><td>feel bad, uncomfortable; bitter feeling</td><td>🆎 惯用语</td></tr>
+          <tr><td>沉默</td><td>chénmò</td><td>silent, quiet</td><td>形容词/动词</td></tr>
+          <tr><td>一味</td><td>yīwèi</td><td>blindly; 一味地 = without thinking</td><td>副词</td></tr>
+          <tr><td>迎合</td><td>yínghé</td><td>cater to, please others</td><td>动词</td></tr>
+        </tbody>
+      </table>
+
+      <h3>📝 点评</h3>
+      <table class="data-table">
+        <thead><tr><th>评分项</th><th>表现</th></tr></thead>
+        <tbody>
+          <tr><td>扣题</td><td>✅ 开头点明"以为朋友就是顺着自己"，结尾点明"真正友情是互相帮助"</td></tr>
+          <tr><td>结构</td><td>✅ 五段式：过去→起因→经过→结果→感悟</td></tr>
+          <tr><td>心理描写</td><td>✅ "又气又委屈"、"心里更不是滋味"、"心里暖暖的"</td></tr>
+          <tr><td>对话</td><td>✅ 小琳的建议、妈妈的话、最后的道歉</td></tr>
+          <tr><td>转折</td><td>✅ 从"生气"到"明白"的转变自然</td></tr>
+          <tr><td>细节</td><td>✅ 模拟演讲场景真实可信</td></tr>
+          <tr><td>点题</td><td>✅ 结尾直接回应"真正的友情"</td></tr>
+        </tbody>
+      </table>
+
+      <h3>🌟 可借鉴的好句</h3>
+      <ul class="good-lines">
+        <li>"我们无话不谈，形影不离"（成语运用）</li>
+        <li>"真正的朋友就应该互相帮助，共同进步"（金句）</li>
+        <li>"真正的朋友不是一味地迎合你，而是在你需要的时候，勇敢地指出你的不足"（哲理升华）</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p><a href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

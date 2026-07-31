@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="gate.js"></script>
+  <title>P5 HCL 范文4：不懂装懂的后果 · by Claire</title>
+  <meta name="description" content="P5 Higher Chinese sample essay — 不懂装懂的后果 (the consequences of pretending to know), fully annotated with pinyin, vocab table, and scoring commentary, by Claire.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%234a90d9'/%3E%3Ccircle cx='11' cy='12' r='4' fill='%23cfe8ff'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink:#1c3a5e; --ink-soft:#4a6585; --blue:#2b6cb0; --blue-deep:#1f5290;
+      --blue-bright:#4a90d9; --sky:#a8d8ea; --wash:#cfe8ff; --mist:#e3f2fd;
+      --paper:#f4f9ff; --card:#ffffff; --lilac:#e6d9ff; --lilac-deep:#c9b3f0;
+      --shadow:0 10px 30px rgba(43,108,176,0.14); --shadow-sm:0 4px 14px rgba(43,108,176,0.12);
+      --radius:22px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family:'Nunito','Noto Sans SC', system-ui, sans-serif; color:var(--ink); line-height:1.7;
+      background-color:var(--paper);
+      background-image:
+        radial-gradient(36rem 36rem at 6% -5%, rgba(168,216,234,0.55), transparent 60%),
+        radial-gradient(30rem 30rem at 100% 6%, rgba(207,232,255,0.65), transparent 60%),
+        radial-gradient(34rem 34rem at 102% 96%, rgba(230,217,255,0.45), transparent 60%);
+      background-attachment:fixed;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh; padding:0 0 60px;
+    }
+    h1,h2,h3,.btn,.brand { font-family:'Fredoka','Nunito',sans-serif; }
+    .wrap { width:100%; max-width:820px; margin:0 auto; padding:0 22px; }
+    a { text-decoration:none; color:var(--blue); }
+
+    .topbar { padding:18px 0 0; }
+    .btn-back {
+      display:inline-flex; align-items:center; gap:7px;
+      background:rgba(255,255,255,0.8); color:var(--blue-deep);
+      font-weight:700; font-size:0.9rem; padding:9px 16px; border-radius:999px;
+      box-shadow:var(--shadow-sm); transition:transform .12s, background .15s;
+    }
+    .btn-back:hover { transform:translateX(-3px); background:#fff; }
+
+    .hero { text-align:center; padding:32px 0 22px; }
+    .eyebrow {
+      display:inline-block; background:#fff; color:var(--blue); font-weight:800;
+      font-size:.8rem; letter-spacing:.6px; text-transform:uppercase;
+      padding:6px 14px; border-radius:999px; box-shadow:var(--shadow-sm); margin-bottom:16px;
+    }
+    .hero h1 { font-size:clamp(1.6rem,5vw,2.5rem); color:var(--ink); line-height:1.25; }
+    .hero p { color:var(--ink-soft); font-weight:600; max-width:50ch; margin:14px auto 0; }
+
+    .card {
+      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:26px 28px; margin-top:24px;
+    }
+    .card h2 { color:var(--blue-deep); font-size:1.35rem; margin-bottom:6px; }
+    .card h2 .em { margin-right:8px; }
+    .card h3 { color:var(--ink); font-size:1.05rem; margin:18px 0 8px; }
+    .card p { margin:8px 0; }
+    .card ul, .card ol { margin:8px 0 8px 22px; }
+    .card li { margin:5px 0; }
+
+    .pill-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+    .pill { background:var(--wash); color:var(--blue-deep); font-weight:700; font-size:.85rem; padding:6px 13px; border-radius:999px; }
+
+    .essay {
+      background:var(--paper); border:2px solid var(--wash); border-radius:18px;
+      padding:18px 20px; margin:14px 0;
+    }
+    .essay .zh { margin-bottom:6px; }
+
+    .essay-meta { background:var(--mist); border-radius:14px; padding:12px 16px; margin:10px 0 16px; font-size:.9rem; }
+    .essay-meta p { margin:2px 0; }
+    .essay-meta .label { font-weight:800; color:var(--blue-deep); }
+
+    .note-box { background:var(--lilac); border-radius:12px; padding:10px 16px; margin:-6px 0 16px; font-size:.86rem; color:#4a3878; }
+
+    .word-count { text-align:right; color:var(--ink-soft); font-size:.85rem; font-style:italic; margin-top:-4px; }
+
+    .data-table { width:100%; border-collapse:collapse; margin:14px 0 20px; font-size:.85rem; }
+    .data-table th, .data-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--wash); vertical-align:top; }
+    .data-table th { background:var(--mist); color:var(--blue-deep); font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.3px; }
+    .data-table tr:last-child td { border-bottom:none; }
+    .data-table td:first-child { font-weight:700; white-space:nowrap; }
+
+    .good-lines { margin:8px 0 8px 22px; }
+    .good-lines li { margin:6px 0; }
+
+    footer { text-align:center; color:var(--ink-soft); font-weight:600; margin-top:40px; }
+    footer a { font-weight:800; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="btn-back" href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a>
+    </div>
+
+    <header class="hero">
+      <span class="eyebrow">🀄 Chinese Cheat Sheet · Sample Essay</span>
+      <h1>范文4：不懂装懂的后果</h1>
+      <p>P5 Higher Chinese — a real past-year exam essay on the consequences of pretending to know, fully annotated with pinyin, vocab table, and scoring commentary.</p>
+    </header>
+
+    <section class="card">
+      <p class="pill-row">
+        <span class="pill">硬着头皮</span><span class="pill">东倒西歪</span>
+        <span class="pill">诚实面对不足才是勇敢</span>
+      </p>
+
+      <div class="essay-meta">
+        <p><span class="label">来源：</span>南洋小学 2025 P5 高级华文年终考试 试卷一 Q1</p>
+        <p><span class="label">题目：</span>不懂装懂的后果</p>
+        <p><span class="label">情境：</span>你一向怕丢脸，经常假装什么都知道。一次，因为你不懂装懂，闯下大祸，让你再也不敢这样做了。</p>
+      </div>
+
+      <h3>📖 正文（附拼音与注释）</h3>
+      <div class="essay">
+        <p class="zh">我从小就是一个特别爱面子（miànzi · face, reputation）的人。在课堂上，不管老师问什么，我都连连点头（liánlián diǎntóu · nod repeatedly），生怕别人觉得我笨。同学们都说我"什么都懂"，我心里暗暗得意（àn'àn déyì · 🆎 secretly pleased with oneself），却不知道这个坏习惯会给我带来多大的麻烦（máfan · trouble）。</p>
+
+        <div class="note-box">💡 <strong>面子</strong> — 指一个人的尊严和体面。中国人很重视"面子"，怕在别人面前丢脸。<br>💡 <strong>暗暗得意</strong> — 心里偷偷地高兴、自满，但没有表现出来。</div>
+
+        <p class="zh">五年级下学期，学校举办了一次户外教学（hùwài jiàoxué · outdoor learning trip），到蓄水池（xùshuǐchí · reservoir）参观。出发前，老师特别嘱咐（zhǔfù · instruct, enjoin）大家要注意安全，还问我们会不会游泳。其实我根本不会游泳，但看到同学们都举手说"会"，我也不好意思承认（chéngrèn · admit）自己不会，就硬着头皮（yìng zhe tóupí · 🆎 force oneself to do something; grit one's teeth and do it）举了手。</p>
+
+        <div class="note-box">💡 <strong>嘱咐</strong> — 反复叮咛、交代，表示关心和重视。<br>💡 <strong>硬着头皮</strong> — 形容不愿意或没有把握，但还是勉强自己去做。</div>
+
+        <p class="zh">到了蓄水池，老师带大家到浮桥（fúqiáo · pontoon bridge）上观察水面。浮桥摇摇晃晃（yáoyáo huànghuàng · 🆎 wobbling and swaying; unsteady）的，我越走越害怕。就在这时，老师宣布（xuānbù · announce）下一个活动是划独木舟（huá dúmùzhōu · canoeing），两个人一组。我的搭档（dādàng · partner）小伟兴奋地问我："你会划独木舟吗？"我不想在他面前显得不会（xiǎnde bú huì · appear incapable），就拍拍胸脯（pāi pāi xiōngpú · 🆎 pat one's chest confidently; assure others with confidence）说："当然会！我可是高手！"</p>
+
+        <div class="note-box">💡 <strong>摇摇晃晃</strong> — 不稳的样子，AABB式叠词，形容浮桥晃来晃去。<br>💡 <strong>显得不会</strong> — 看起来好像不会做某事，让人觉得能力不足。<br>💡 <strong>拍拍胸脯</strong> — 拍胸口表示很有把握、很有信心。</div>
+
+        <p class="zh">上了独木舟，小伟让我负责控制方向（kòngzhì fāngxiàng · control the direction）。我握着桨（jiǎng · paddle），脑子一片空白——我连怎么拿桨都不知道！独木舟刚离开岸边，就开始东倒西歪（dōng dǎo xī wāi · 🆎 toppling this way and that; very unsteady）。小伟紧张地喊："快稳住！"</p>
+
+        <div class="note-box">💡 <strong>东倒西歪</strong> — 形容很不稳，随时要倒的样子。</div>
+
+        <p class="zh">我手忙脚乱（shǒu máng jiǎo luàn · 🆎 frantic; in a flurry）地划了几下，结果桨脱手（tuōshǒu · slip from one's hands），掉进了水里！独木舟猛地一翻倒（fāndǎo · overturn, flip over），我和小伟同时扑通（pūtōng · splash, plop）一声掉进了水里！小伟虽然会游泳，但被翻倒的独木舟撞到了手臂，疼得直咧嘴（zhí liě zuǐ · 🆎 keep grimacing; wince in pain）。</p>
+
+        <div class="note-box">💡 <strong>手忙脚乱</strong> — 形容做事慌张，没有条理。<br>💡 <strong>翻倒</strong> — 向一侧翻过去，这里指独木舟翻覆。<br>💡 <strong>直咧嘴</strong> — 不停地咧着嘴，形容非常疼痛。</div>
+
+        <p class="zh">幸好救生员（jiùshēngyuán · lifeguard）及时发现，把我们救了上来。小伟的手臂又红又肿（yòu hóng yòu zhǒng · red and swollen），需要去医院包扎（bāozā · bandage, dress a wound）。看着小伟痛苦的表情，我心里惭愧（cánkuì · ashamed, embarrassed）极了。</p>
+
+        <div class="note-box">💡 <strong>又红又肿</strong> — 形容受伤部位发红并且肿胀起来。<br>💡 <strong>惭愧</strong> — 因为自己做错了事而感到不好意思和内疚。</div>
+
+        <p class="zh">回到学校后，老师严肃（yánsù · serious, stern）地批评了我。我低着头（dī zhe tóu · hang one's head），眼泪夺眶而出（duó kuàng ér chū · 🆎 tears burst from one's eyes; tears stream down）。我终于明白，不懂装懂不仅（bùjǐn · not only）会害了自己，还会连累（liánlěi · implicate, involve others in trouble）别人。小伟原谅（yuánliàng · forgive）了我，但我永远忘不了这次教训（jiàoxun · lesson）。从那以后，遇到不懂的事，我再也不敢假装什么都知道了。诚实面对自己的不足，才是真正的勇敢。</p>
+
+        <div class="note-box">💡 <strong>不仅</strong> — 表示"不但"的意思，常与"还/而且"搭配使用，构成"不仅...还..."的句式。<br>💡 <strong>夺眶而出</strong> — 眼泪从眼眶里涌出来。形容非常伤心或激动。<br>💡 <strong>连累</strong> — 因为自己的过错使别人也受到牵连和损害。</div>
+
+        <p class="word-count">字数：约 530 字</p>
+      </div>
+
+      <h3>📚 生词总表</h3>
+      <table class="data-table">
+        <thead><tr><th>词语</th><th>拼音</th><th>英文</th><th>类型</th></tr></thead>
+        <tbody>
+          <tr><td>面子</td><td>miànzi</td><td>face, reputation</td><td>名词</td></tr>
+          <tr><td>连连点头</td><td>liánlián diǎntóu</td><td>nod repeatedly</td><td>动词短语</td></tr>
+          <tr><td>暗暗得意</td><td>àn'àn déyì</td><td>secretly pleased with oneself</td><td>🆎 成语</td></tr>
+          <tr><td>麻烦</td><td>máfan</td><td>trouble</td><td>名词</td></tr>
+          <tr><td>户外教学</td><td>hùwài jiàoxué</td><td>outdoor learning trip</td><td>名词</td></tr>
+          <tr><td>蓄水池</td><td>xùshuǐchí</td><td>reservoir</td><td>名词</td></tr>
+          <tr><td>嘱咐</td><td>zhǔfù</td><td>instruct, enjoin</td><td>动词</td></tr>
+          <tr><td>承认</td><td>chéngrèn</td><td>admit, acknowledge</td><td>动词</td></tr>
+          <tr><td>硬着头皮</td><td>yìng zhe tóupí</td><td>force oneself to do it; grit one's teeth</td><td>🆎 惯用语</td></tr>
+          <tr><td>浮桥</td><td>fúqiáo</td><td>pontoon bridge</td><td>名词</td></tr>
+          <tr><td>摇摇晃晃</td><td>yáoyáo huànghuàng</td><td>wobbling and swaying</td><td>AABB叠词</td></tr>
+          <tr><td>宣布</td><td>xuānbù</td><td>announce</td><td>动词</td></tr>
+          <tr><td>划独木舟</td><td>huá dúmùzhōu</td><td>canoeing</td><td>动词短语</td></tr>
+          <tr><td>搭档</td><td>dādàng</td><td>partner</td><td>名词</td></tr>
+          <tr><td>显得不会</td><td>xiǎnde bú huì</td><td>appear incapable</td><td>动词短语</td></tr>
+          <tr><td>拍拍胸脯</td><td>pāi pāi xiōngpú</td><td>pat one's chest confidently</td><td>🆎 惯用语</td></tr>
+          <tr><td>控制方向</td><td>kòngzhì fāngxiàng</td><td>control the direction</td><td>动词短语</td></tr>
+          <tr><td>桨</td><td>jiǎng</td><td>paddle</td><td>名词</td></tr>
+          <tr><td>东倒西歪</td><td>dōng dǎo xī wāi</td><td>toppling this way and that</td><td>🆎 成语</td></tr>
+          <tr><td>手忙脚乱</td><td>shǒu máng jiǎo luàn</td><td>frantic; in a flurry</td><td>🆎 成语</td></tr>
+          <tr><td>脱手</td><td>tuōshǒu</td><td>slip from one's hands</td><td>动词</td></tr>
+          <tr><td>翻倒</td><td>fāndǎo</td><td>overturn, flip over</td><td>动词</td></tr>
+          <tr><td>扑通</td><td>pūtōng</td><td>splash, plop</td><td>拟声词</td></tr>
+          <tr><td>直咧嘴</td><td>zhí liě zuǐ</td><td>keep grimacing; wince in pain</td><td>🆎 惯用语</td></tr>
+          <tr><td>救生员</td><td>jiùshēngyuán</td><td>lifeguard</td><td>名词</td></tr>
+          <tr><td>又红又肿</td><td>yòu hóng yòu zhǒng</td><td>red and swollen</td><td>形容词短语</td></tr>
+          <tr><td>包扎</td><td>bāozā</td><td>bandage, dress a wound</td><td>动词</td></tr>
+          <tr><td>惭愧</td><td>cánkuì</td><td>ashamed, embarrassed</td><td>形容词</td></tr>
+          <tr><td>严肃</td><td>yánsù</td><td>serious, stern</td><td>形容词</td></tr>
+          <tr><td>夺眶而出</td><td>duó kuàng ér chū</td><td>tears burst from one's eyes</td><td>🆎 成语</td></tr>
+          <tr><td>不仅</td><td>bùjǐn</td><td>not only</td><td>连词</td></tr>
+          <tr><td>连累</td><td>liánlěi</td><td>implicate, involve others in trouble</td><td>动词</td></tr>
+          <tr><td>原谅</td><td>yuánliàng</td><td>forgive</td><td>动词</td></tr>
+          <tr><td>教训</td><td>jiàoxun</td><td>lesson (learned)</td><td>名词</td></tr>
+        </tbody>
+      </table>
+
+      <h3>📝 点评</h3>
+      <table class="data-table">
+        <thead><tr><th>评分项</th><th>表现</th></tr></thead>
+        <tbody>
+          <tr><td>扣题</td><td>✅ 开头点明"怕丢脸、假装什么都知道"，结尾点明"再也不敢不懂装懂"</td></tr>
+          <tr><td>结构</td><td>✅ 五段式：过去（习惯）→起因（户外教学）→经过（划独木舟）→结果（翻船、小伟受伤）→感悟</td></tr>
+          <tr><td>心理描写</td><td>✅ "暗暗得意"、"不好意思承认"、"心里惭愧极了"</td></tr>
+          <tr><td>动作描写</td><td>✅ 手忙脚乱、桨脱手、扑通掉进水里</td></tr>
+          <tr><td>对话</td><td>✅ 小伟的"你会划独木舟吗？"、"快稳住！"</td></tr>
+          <tr><td>前后对比</td><td>✅ 从"拍拍胸脯说我是高手"到"低着头、眼泪夺眶而出"</td></tr>
+          <tr><td>点题</td><td>✅ 结尾直接回应"不懂装懂的后果"，升华到"诚实面对不足才是勇敢"</td></tr>
+        </tbody>
+      </table>
+
+      <h3>🌟 可借鉴的好句</h3>
+      <ul class="good-lines">
+        <li>"硬着头皮举了手"（惯用语运用）</li>
+        <li>"桨脱手，独木舟猛地一翻倒"（紧张的动作场面）</li>
+        <li>"不懂装懂不仅会害了自己，还会连累别人"（哲理结尾）</li>
+        <li>"诚实面对自己的不足，才是真正的勇敢"（升华点题）</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p><a href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a></p>
+    </footer>
+  </div>
+</body>
+</html>

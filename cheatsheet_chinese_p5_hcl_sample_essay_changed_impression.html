@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="gate.js"></script>
+  <title>P5 HCL 范文3：这件事让我改变了对他的印象 · by Claire</title>
+  <meta name="description" content="P5 Higher Chinese sample essay — 这件事让我改变了对他的印象 (changing an impression of someone), fully annotated with pinyin, vocab table, and scoring commentary, by Claire.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%234a90d9'/%3E%3Ccircle cx='11' cy='12' r='4' fill='%23cfe8ff'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink:#1c3a5e; --ink-soft:#4a6585; --blue:#2b6cb0; --blue-deep:#1f5290;
+      --blue-bright:#4a90d9; --sky:#a8d8ea; --wash:#cfe8ff; --mist:#e3f2fd;
+      --paper:#f4f9ff; --card:#ffffff; --lilac:#e6d9ff; --lilac-deep:#c9b3f0;
+      --shadow:0 10px 30px rgba(43,108,176,0.14); --shadow-sm:0 4px 14px rgba(43,108,176,0.12);
+      --radius:22px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family:'Nunito','Noto Sans SC', system-ui, sans-serif; color:var(--ink); line-height:1.7;
+      background-color:var(--paper);
+      background-image:
+        radial-gradient(36rem 36rem at 6% -5%, rgba(168,216,234,0.55), transparent 60%),
+        radial-gradient(30rem 30rem at 100% 6%, rgba(207,232,255,0.65), transparent 60%),
+        radial-gradient(34rem 34rem at 102% 96%, rgba(230,217,255,0.45), transparent 60%);
+      background-attachment:fixed;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh; padding:0 0 60px;
+    }
+    h1,h2,h3,.btn,.brand { font-family:'Fredoka','Nunito',sans-serif; }
+    .wrap { width:100%; max-width:820px; margin:0 auto; padding:0 22px; }
+    a { text-decoration:none; color:var(--blue); }
+
+    .topbar { padding:18px 0 0; }
+    .btn-back {
+      display:inline-flex; align-items:center; gap:7px;
+      background:rgba(255,255,255,0.8); color:var(--blue-deep);
+      font-weight:700; font-size:0.9rem; padding:9px 16px; border-radius:999px;
+      box-shadow:var(--shadow-sm); transition:transform .12s, background .15s;
+    }
+    .btn-back:hover { transform:translateX(-3px); background:#fff; }
+
+    .hero { text-align:center; padding:32px 0 22px; }
+    .eyebrow {
+      display:inline-block; background:#fff; color:var(--blue); font-weight:800;
+      font-size:.8rem; letter-spacing:.6px; text-transform:uppercase;
+      padding:6px 14px; border-radius:999px; box-shadow:var(--shadow-sm); margin-bottom:16px;
+    }
+    .hero h1 { font-size:clamp(1.6rem,5vw,2.5rem); color:var(--ink); line-height:1.25; }
+    .hero p { color:var(--ink-soft); font-weight:600; max-width:50ch; margin:14px auto 0; }
+
+    .card {
+      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:26px 28px; margin-top:24px;
+    }
+    .card h2 { color:var(--blue-deep); font-size:1.35rem; margin-bottom:6px; }
+    .card h2 .em { margin-right:8px; }
+    .card h3 { color:var(--ink); font-size:1.05rem; margin:18px 0 8px; }
+    .card p { margin:8px 0; }
+    .card ul, .card ol { margin:8px 0 8px 22px; }
+    .card li { margin:5px 0; }
+
+    .pill-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+    .pill { background:var(--wash); color:var(--blue-deep); font-weight:700; font-size:.85rem; padding:6px 13px; border-radius:999px; }
+
+    .essay {
+      background:var(--paper); border:2px solid var(--wash); border-radius:18px;
+      padding:18px 20px; margin:14px 0;
+    }
+    .essay .zh { margin-bottom:6px; }
+
+    .essay-meta { background:var(--mist); border-radius:14px; padding:12px 16px; margin:10px 0 16px; font-size:.9rem; }
+    .essay-meta p { margin:2px 0; }
+    .essay-meta .label { font-weight:800; color:var(--blue-deep); }
+
+    .note-box { background:var(--lilac); border-radius:12px; padding:10px 16px; margin:-6px 0 16px; font-size:.86rem; color:#4a3878; }
+
+    .word-count { text-align:right; color:var(--ink-soft); font-size:.85rem; font-style:italic; margin-top:-4px; }
+
+    .data-table { width:100%; border-collapse:collapse; margin:14px 0 20px; font-size:.85rem; }
+    .data-table th, .data-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--wash); vertical-align:top; }
+    .data-table th { background:var(--mist); color:var(--blue-deep); font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.3px; }
+    .data-table tr:last-child td { border-bottom:none; }
+    .data-table td:first-child { font-weight:700; white-space:nowrap; }
+
+    .good-lines, .check-list, .tips-list { margin:8px 0 8px 22px; }
+    .good-lines li, .check-list li, .tips-list li { margin:6px 0; }
+
+    footer { text-align:center; color:var(--ink-soft); font-weight:600; margin-top:40px; }
+    footer a { font-weight:800; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="btn-back" href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a>
+    </div>
+
+    <header class="hero">
+      <span class="eyebrow">🀄 Chinese Cheat Sheet · Sample Essay</span>
+      <h1>范文3：这件事让我改变了对他的印象</h1>
+      <p>P5 Higher Chinese — a real past-year exam essay on changing your first impression of someone, fully annotated with pinyin, vocab table, and scoring commentary.</p>
+    </header>
+
+    <section class="card">
+      <p class="pill-row">
+        <span class="pill">印象大跌</span><span class="pill">半信半疑</span>
+        <span class="pill">不能只看表面</span>
+      </p>
+
+      <div class="essay-meta">
+        <p><span class="label">来源：</span>圣希尔达小学 2025 P5 高级华文年终考试 试卷一 Q1</p>
+        <p><span class="label">题目：</span>这件事让我改变了对他的印象</p>
+        <p><span class="label">情境：</span>班上来了一位新同学。一开始，你非常讨厌这位同学，后来你们一起解决了一个难题。通过这件事，你改变了对他的看法，你们还因此成为了好朋友。</p>
+      </div>
+
+      <h3>📖 正文（附拼音与注释）</h3>
+      <div class="essay">
+        <p class="zh">五年级开学第一天，班上转来了一位新同学，名叫志伟。他个子高高瘦瘦的，看起来文文静静（wénwén jìngjìng · quiet and gentle; demure）的。可是，第一堂课就让我对他印象大跌（yìnxiàng dàdiē · 🆎 one's impression plummets; a sharp drop in one's opinion of someone）。</p>
+
+        <div class="note-box">💡 <strong>文文静静</strong> — 形容人很安静、斯文。AABB式叠词，让描写更生动。<br>💡 <strong>印象大跌</strong> — 对一个人的看法突然变差，像股票大跌一样。</div>
+
+        <p class="zh">那天早上，我正在专心抄写笔记，志伟突然大声问老师："老师，这个字怎么写？"全班同学都被他打断了，纷纷（fēnfēn · one after another; in succession）转过头来看他。我心里很不满：这么简单的问题也要问，真烦人！更让我生气的是，下课时，他不小心撞到我的桌子，把我的铅笔盒碰掉了。他连忙（liánmáng · hurriedly, promptly）道歉，但我还是气呼呼（qìhūhū · angrily, fuming）地说："你怎么这么不小心啊！"从那天起，我就觉得志伟是个麻烦精（máfanjīng · 🆎 troublemaker; a nuisance），总是离他远远的。</p>
+
+        <div class="note-box">💡 <strong>纷纷</strong> — 一个接一个地，形容很多人同时做某事。<br>💡 <strong>气呼呼</strong> — 形容非常生气的样子，和"气冲冲"类似。<br>💡 <strong>麻烦精</strong> — 口语，指总是制造麻烦的人。类似英文 "a pain in the neck"。</div>
+
+        <p class="zh">两个星期后，老师宣布学校要举办科学展览，每个小组要做一个项目。更让我没想到的是，老师竟然把我和志伟分在同一组！我心里一沉：完了，肯定做不好。</p>
+
+        <p class="zh">我们的项目是制作一个太阳能（tàiyángnéng · solar energy）小车。志伟负责查资料，我负责做模型。可是，到了组装（zǔzhuāng · assemble, put together）的时候，问题出现了——小车一放在太阳下就歪歪斜斜（wāiwāi xiéxié · 🆎 crooked, wobbly; not straight）地跑不动。我急得团团转（tuántuánzhuàn · 🆎 run around in circles; panic and not know what to do），试了好几次都不行。我沮丧（jǔsàng · frustrated, dejected）地坐在地上，心想：这下完了，肯定要失败了。</p>
+
+        <div class="note-box">💡 <strong>歪歪斜斜</strong> — 不直、不稳的样子。AABB式叠词，形象地描写小车跑不直。<br>💡 <strong>团团转</strong> — 急得不知道怎么办，像陀螺一样转来转去。非常生动的口语表达。</div>
+
+        <p class="zh">就在这时，志伟蹲（dūn · squat down）下来，仔细检查了小车的轮子。他推了推眼镜，说："我觉得是轮子装得不够平整（píngzhěng · even, level），所以跑不起来。我们可以试试用吸管（xīguǎn · straw）垫在轮子下面，让它更稳。"我半信半疑（bàn xìn bàn yí · 🆎 half believing, half doubting; skeptical）地看着他，但也没有别的办法，只好照做。没想到，小车真的平稳（píngwěn · smooth and steady）地跑起来了！我惊讶地看着志伟，他不好意思地笑了笑："我之前查了很多资料，没想到真的派上用场（pài shàng yòngchǎng · 🆎 come in handy; prove useful）了。"</p>
+
+        <div class="note-box">💡 <strong>半信半疑</strong> — 一半相信，一半怀疑。形容对某事不确定。<br>💡 <strong>派上用场</strong> — 终于有了用武之地，能够发挥作用。</div>
+
+        <p class="zh">那一刻，我突然意识到（yìshí dào · realize, become aware），志伟并不是我想象中的"麻烦精"。他上课提问是因为真的想弄懂，撞到我是因为近视（jìnshì · shortsighted）看不清。相反，他很细心、很聪明，而且愿意帮助别人。</p>
+
+        <p class="zh">展览那天，我们的太阳能小车获得了全班第一名。老师表扬（biǎoyáng · praise, commend）我们合作得很好，我和志伟相视一笑（xiāng shì yī xiào · 🆎 exchange a smile; look at each other and smile）。从那以后，我们成了好朋友。</p>
+
+        <div class="note-box">💡 <strong>相视一笑</strong> — 互相看着对方微笑。表示默契、和解，不需要说话就能理解彼此。</div>
+
+        <p class="zh">通过这件事，我明白了一个道理：不能只看表面（biǎomiàn · surface, appearance）就判断一个人。有时候，我们需要给彼此一个机会，才能发现对方身上的闪光点（shǎnguāngdiǎn · 🆎 shining points; strengths; positive qualities）。</p>
+
+        <div class="note-box">💡 <strong>闪光点</strong> — 比喻一个人身上值得称赞的优点或长处。</div>
+
+        <p class="word-count">字数：约 530 字</p>
+      </div>
+
+      <h3>📚 生词总表</h3>
+      <table class="data-table">
+        <thead><tr><th>词语</th><th>拼音</th><th>英文</th><th>类型</th></tr></thead>
+        <tbody>
+          <tr><td>文文静静</td><td>wénwén jìngjìng</td><td>quiet and gentle; demure</td><td>AABB叠词</td></tr>
+          <tr><td>印象大跌</td><td>yìnxiàng dàdiē</td><td>one's impression plummets</td><td>🆎 惯用语</td></tr>
+          <tr><td>纷纷</td><td>fēnfēn</td><td>one after another; in succession</td><td>副词</td></tr>
+          <tr><td>连忙</td><td>liánmáng</td><td>hurriedly, promptly</td><td>副词</td></tr>
+          <tr><td>气呼呼</td><td>qìhūhū</td><td>angrily, fuming</td><td>形容词</td></tr>
+          <tr><td>麻烦精</td><td>máfanjīng</td><td>troublemaker; a nuisance</td><td>🆎 口语</td></tr>
+          <tr><td>太阳能</td><td>tàiyángnéng</td><td>solar energy</td><td>名词</td></tr>
+          <tr><td>组装</td><td>zǔzhuāng</td><td>assemble, put together</td><td>动词</td></tr>
+          <tr><td>歪歪斜斜</td><td>wāiwāi xiéxié</td><td>crooked, wobbly, not straight</td><td>AABB叠词</td></tr>
+          <tr><td>团团转</td><td>tuántuánzhuàn</td><td>run around in circles; panic</td><td>🆎 惯用语</td></tr>
+          <tr><td>沮丧</td><td>jǔsàng</td><td>frustrated, dejected</td><td>形容词</td></tr>
+          <tr><td>蹲</td><td>dūn</td><td>squat down</td><td>动词</td></tr>
+          <tr><td>平整</td><td>píngzhěng</td><td>even, level</td><td>形容词</td></tr>
+          <tr><td>吸管</td><td>xīguǎn</td><td>straw</td><td>名词</td></tr>
+          <tr><td>半信半疑</td><td>bàn xìn bàn yí</td><td>half believing, half doubting; skeptical</td><td>🆎 成语</td></tr>
+          <tr><td>平稳</td><td>píngwěn</td><td>smooth and steady</td><td>形容词</td></tr>
+          <tr><td>派上用场</td><td>pài shàng yòngchǎng</td><td>come in handy; prove useful</td><td>🆎 惯用语</td></tr>
+          <tr><td>意识到</td><td>yìshí dào</td><td>realize, become aware</td><td>动词</td></tr>
+          <tr><td>近视</td><td>jìnshì</td><td>shortsighted, nearsighted</td><td>形容词/名词</td></tr>
+          <tr><td>表扬</td><td>biǎoyáng</td><td>praise, commend</td><td>动词</td></tr>
+          <tr><td>相视一笑</td><td>xiāng shì yī xiào</td><td>exchange a smile; look at each other and smile</td><td>🆎 成语</td></tr>
+          <tr><td>表面</td><td>biǎomiàn</td><td>surface, appearance</td><td>名词</td></tr>
+          <tr><td>闪光点</td><td>shǎnguāngdiǎn</td><td>shining points; strengths; positive qualities</td><td>🆎 惯用语</td></tr>
+        </tbody>
+      </table>
+
+      <h3>📝 范文点评</h3>
+
+      <h3 style="margin-top:14px;">✅ 扣题分析</h3>
+      <ul class="check-list">
+        <li>新同学 ✓（志伟转学来）</li>
+        <li>一开始讨厌 ✓（觉得他烦人、麻烦精）</li>
+        <li>一起解决难题 ✓（太阳能小车跑不动）</li>
+        <li>改变看法 ✓（发现他细心、聪明、愿意帮助）</li>
+        <li>成为好朋友 ✓（展览后成为好友）</li>
+      </ul>
+
+      <h3>✅ 结构分析</h3>
+      <table class="data-table">
+        <thead><tr><th>段落</th><th>内容</th><th>作用</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>志伟出场，外表文静</td><td>铺垫</td></tr>
+          <tr><td>2</td><td>上课提问、撞桌子</td><td>建立"讨厌"的印象</td></tr>
+          <tr><td>3</td><td>被分在同一组</td><td>转折开始</td></tr>
+          <tr><td>4–5</td><td>小车出问题，志伟解决</td><td>高潮，展现真实品质</td></tr>
+          <tr><td>6–7</td><td>改变看法，成为朋友</td><td>点题</td></tr>
+        </tbody>
+      </table>
+
+      <h3>✅ 亮点技巧</h3>
+      <ul class="check-list">
+        <li>对比鲜明：从"麻烦精"到"细心聪明"的转变</li>
+        <li>心理描写：从"心里一沉"到"惊讶地看着他"</li>
+        <li>细节真实：太阳能小车项目符合小学生生活</li>
+        <li>对话自然：志伟的道歉、解释都很真实</li>
+        <li>结尾升华：点出"不能只看表面"的道理</li>
+      </ul>
+
+      <h3>🌟 可借鉴的好词好句</h3>
+      <ul class="good-lines">
+        <li>"印象大跌"——生动表达失望</li>
+        <li>"麻烦精"——口语化，真实</li>
+        <li>"半信半疑"——准确描述心理</li>
+        <li>"相视一笑"——无声的和解</li>
+        <li>"不能只看表面就判断一个人"——点题金句</li>
+      </ul>
+
+      <h3>💡 写作提示</h3>
+      <div class="note-box">这道题的关键是转变过程要合理：</div>
+      <ul class="tips-list">
+        <li>讨厌的理由要具体（不是无缘无故讨厌）</li>
+        <li>解决难题的过程要详细（这是转变的关键）</li>
+        <li>改变看法要有心理活动（不能突然就变好了）</li>
+        <li>结尾要点明道理（不能只讲故事不总结）</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p><a href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a></p>
+    </footer>
+  </div>
+</body>
+</html>
