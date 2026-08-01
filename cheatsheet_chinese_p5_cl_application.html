@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="gate.js"></script>
-  <title>P5 CL 语文应用 Cheat Sheet · by Claire</title>
-  <meta name="description" content="P5 Chinese Language Application cheat sheet — 语文应用 A/B groups and 短文填空 cloze, by Claire.">
+  <title>P5 CL 语文应用高难度模拟卷 · by Claire</title>
+  <meta name="description" content="P5 Chinese Language mock paper — 30 语文应用 (application) MCQs from real 2025 P5 year-end exams, with a try-it-yourself reveal flow: wrong once unlocks pinyin, wrong twice unlocks the answer and explanation.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,7 @@
       --ink:#1c3a5e; --ink-soft:#4a6585; --blue:#2b6cb0; --blue-deep:#1f5290;
       --blue-bright:#4a90d9; --sky:#a8d8ea; --wash:#cfe8ff; --mist:#e3f2fd;
       --paper:#f4f9ff; --card:#ffffff; --lilac:#e6d9ff; --lilac-deep:#c9b3f0;
+      --green:#2f9e63; --green-bg:#e3f7ec; --red:#c0392b; --red-bg:#fdeceb;
       --shadow:0 10px 30px rgba(43,108,176,0.14); --shadow-sm:0 4px 14px rgba(43,108,176,0.12);
       --radius:22px;
     }
@@ -50,52 +51,67 @@
       font-size:.8rem; letter-spacing:.6px; text-transform:uppercase;
       padding:6px 14px; border-radius:999px; box-shadow:var(--shadow-sm); margin-bottom:16px;
     }
-    .hero h1 { font-size:clamp(1.6rem,5vw,2.5rem); color:var(--ink); line-height:1.25; }
-    .hero p { color:var(--ink-soft); font-weight:600; max-width:50ch; margin:14px auto 0; }
+    .hero h1 { font-size:clamp(1.5rem,4.6vw,2.3rem); color:var(--ink); line-height:1.3; }
+    .hero p { color:var(--ink-soft); font-weight:600; max-width:56ch; margin:14px auto 0; }
 
     .card {
       background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:26px 28px; margin-top:24px;
+      padding:22px 24px; margin-top:20px;
     }
-    .card h2 { color:var(--blue-deep); font-size:1.35rem; margin-bottom:6px; }
-    .card h2 .em { margin-right:8px; }
-    .card h3 { color:var(--ink); font-size:1.05rem; margin:18px 0 8px; }
-    .card p { margin:8px 0; }
-    .card ul, .card ol { margin:8px 0 8px 22px; }
-    .card li { margin:5px 0; }
+    .card h2 { color:var(--blue-deep); font-size:1.25rem; margin-bottom:6px; }
+    .card p { margin:6px 0; }
 
-    .overview-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:14px; }
-    .overview-grid .stat { background:var(--mist); border-radius:14px; padding:12px 14px; }
-    .overview-grid .stat .label { font-size:.75rem; font-weight:800; color:var(--blue); text-transform:uppercase; letter-spacing:.4px; }
-    .overview-grid .stat .value { font-weight:700; margin-top:3px; }
+    .essay-meta { background:var(--mist); border-radius:14px; padding:12px 16px; font-size:.9rem; }
+    .essay-meta p { margin:2px 0; }
+    .essay-meta .label { font-weight:800; color:var(--blue-deep); }
 
-    table { width:100%; border-collapse:collapse; margin:12px 0; }
-    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--mist); }
-    th { color:var(--blue-deep); font-size:.85rem; text-transform:uppercase; letter-spacing:.3px; }
-
-    .pill-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
-    .pill { background:var(--wash); color:var(--blue-deep); font-weight:700; font-size:.85rem; padding:6px 13px; border-radius:999px; }
-    .pill.lilac { background:var(--lilac); color:#5b3a9e; }
-
-    .vocab-box { background:var(--mist); border-radius:16px; padding:16px 18px; margin:10px 0; }
-    .vocab-box.lilac { background:var(--lilac); }
-    .vocab-box .zh { font-weight:700; }
-    .vocab-box .py { color:var(--ink-soft); font-size:.85rem; font-style:italic; }
-
-    .example-box {
-      background:var(--paper); border:2px solid var(--wash); border-radius:18px;
-      padding:16px 18px; margin:12px 0;
+    .progress {
+      position:sticky; top:10px; z-index:5;
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      background:rgba(255,255,255,0.92); backdrop-filter:blur(6px);
+      border-radius:14px; padding:10px 16px; margin-top:16px; box-shadow:var(--shadow-sm);
+      font-size:.85rem; font-weight:700; color:var(--blue-deep);
     }
-    .example-box .q { margin-bottom:6px; }
-    .example-box .a { color:var(--blue-deep); font-weight:800; }
+    .progress .bar { flex:1; height:8px; background:var(--wash); border-radius:99px; overflow:hidden; margin:0 4px; }
+    .progress .bar-fill { height:100%; background:var(--blue-bright); width:0%; transition:width .25s; }
 
-    .adapt-box {
-      background:linear-gradient(135deg,#fff7e0,#ffe9b8); border-radius:16px;
-      padding:14px 18px; margin-top:10px;
+    .section-title { margin:26px 2px 4px; font-size:1.1rem; color:var(--blue-deep); }
+
+    .q-card {
+      background:var(--card); border-radius:18px; box-shadow:var(--shadow-sm);
+      padding:18px 20px; margin-top:14px; border:2px solid transparent;
     }
-    .adapt-box .title { font-weight:800; color:#8a5a00; margin-bottom:6px; }
+    .q-card.is-correct { border-color:var(--green); }
+    .q-card.is-revealed:not(.is-correct) { border-color:var(--red); }
+    .q-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; margin-bottom:6px; }
+    .q-num { font-weight:800; color:var(--blue-deep); }
+    .q-source { font-size:.78rem; color:var(--ink-soft); background:var(--mist); padding:3px 9px; border-radius:999px; font-weight:700; }
+    .q-text { font-size:1rem; margin:6px 0 12px; }
 
-    .tip-list li::marker { color:var(--blue); font-weight:800; }
+    .q-options { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .q-options li { margin:0; }
+    .opt {
+      width:100%; text-align:left; font:inherit; font-size:.95rem; color:var(--ink);
+      background:var(--paper); border:2px solid var(--wash); border-radius:12px;
+      padding:9px 14px; cursor:pointer; transition:background .12s, border-color .12s, transform .08s;
+    }
+    .opt:hover:not(:disabled) { border-color:var(--blue-bright); transform:translateX(2px); }
+    .opt:disabled { cursor:default; }
+    .opt.chosen-wrong { background:var(--red-bg); border-color:var(--red); color:var(--red); }
+    .opt.correct-answer { background:var(--green-bg); border-color:var(--green); color:var(--green); font-weight:800; }
+    .opt.dim { opacity:.55; }
+
+    .hint-box, .answer-box, .deep-box {
+      border-radius:12px; padding:10px 16px; margin-top:12px; font-size:.88rem;
+    }
+    .hint-box { background:var(--lilac); color:#4a3878; }
+    .answer-box { background:var(--green-bg); color:#1f5c3a; }
+    .answer-box strong.ans-tag { color:var(--green); }
+    .deep-box { background:var(--mist); color:var(--ink); }
+    .deep-box table { width:100%; border-collapse:collapse; margin-top:8px; font-size:.82rem; }
+    .deep-box th, .deep-box td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--wash); vertical-align:top; }
+    .deep-box th { color:var(--blue-deep); font-weight:800; }
+    .deep-box summary { cursor:pointer; font-weight:800; color:var(--blue-deep); }
 
     footer { text-align:center; color:var(--ink-soft); font-weight:600; margin-top:40px; }
     footer a { font-weight:800; }
@@ -108,236 +124,399 @@
     </div>
 
     <header class="hero">
-      <span class="eyebrow">🀄 Chinese Cheat Sheet</span>
-      <h1>P5 语文应用<br>Chinese Language Application</h1>
-      <p>2025 EOY &amp; WA3 revision — 语文应用 A/B groups and 短文填空 cloze, plus the top mistakes schools keep testing.</p>
+      <span class="eyebrow">🀄 Chinese Mock Paper · 语文应用</span>
+      <h1>P5 CL 语文应用高难度模拟卷</h1>
+      <p>30 real past-year 语文应用 questions from six schools' 2025 P5 year-end exams. Try each one — get it wrong once and a pinyin hint unlocks; get it wrong twice (or right first try) and the full answer + explanation unlocks.</p>
     </header>
 
     <section class="card">
-      <h2><span class="em">📋</span>Exam Format</h2>
-      <table>
-        <tr><th>Section</th><th>Questions</th><th>Marks</th><th>What it is</th></tr>
-        <tr><td>语文应用 A组</td><td>5</td><td>10</td><td>短文填空：从8个词语中选5个填入短文</td></tr>
-        <tr><td>语文应用 B组</td><td>5</td><td>10</td><td>改错题：改正错别字或用词不当</td></tr>
-        <tr><td>短文填空</td><td>5</td><td>10</td><td>综合填空（选择题）</td></tr>
-        <tr><td><strong>总计</strong></td><td><strong>15</strong></td><td><strong>30</strong></td><td>占试卷二45%</td></tr>
-      </table>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">🎯</span>A组 — 短文填空 答题技巧</h2>
-      <ol class="tip-list">
-        <li><strong>先通读全文</strong>，理解大意</li>
-        <li><strong>分析空格</strong>需要什么词性（动词/形容词/名词/副词）</li>
-        <li><strong>注意上下文</strong>的逻辑关系（因果、转折、递进）</li>
-        <li><strong>排除法</strong>：先填最有把握的，再填剩余的</li>
-      </ol>
-
-      <h3>2025年高频词语库（必背）</h3>
-      <p class="pill-row-label"><strong>情感类</strong></p>
-      <div class="pill-row">
-        <span class="pill">担心/担忧 worry</span><span class="pill">安慰 comfort</span>
-        <span class="pill">温柔/温和 gentle</span><span class="pill">激动 agitated</span>
-        <span class="pill">愁眉苦脸 frown</span><span class="pill">欣喜若狂 overjoyed</span>
-        <span class="pill">郁郁不乐 depressed</span><span class="pill">沉默 silent</span>
-      </div>
-      <p><strong>动作类</strong></p>
-      <div class="pill-row">
-        <span class="pill lilac">恢复 restore</span><span class="pill lilac">领取 collect</span>
-        <span class="pill lilac">拥有 possess</span><span class="pill lilac">齐心协力 work together</span>
-        <span class="pill lilac">不约而同 simultaneously</span><span class="pill lilac">异口同声 in unison</span>
-        <span class="pill lilac">全力以赴 all-out effort</span><span class="pill lilac">悄悄溜走 slip away quietly</span>
-      </div>
-      <p><strong>描述类</strong></p>
-      <div class="pill-row">
-        <span class="pill">大概 approximately</span><span class="pill">不仅...还... not only...but also</span>
-        <span class="pill">可惜 unfortunately</span><span class="pill">取笑 mock</span>
-        <span class="pill">不解 puzzled</span><span class="pill">竟然 unexpectedly</span>
-        <span class="pill">必须 must</span><span class="pill">不禁 cannot help but</span>
-      </div>
-
-      <h3>2025年真题示例</h3>
-      <p>词语库：1不仅 2大概 3恢复 4不解 5取笑 6可惜 7领取 8拥有</p>
-      <div class="example-box">
-        <p class="q">车厢里一片沉默，过了好一会儿才____了说话声。</p>
-        <p class="a">答案：3 恢复</p>
-      </div>
-      <div class="example-box">
-        <p class="q">老人____没有感到悲伤...</p>
-        <p class="a">答案：1 不仅</p>
-      </div>
-      <div class="example-box">
-        <p class="q">那双鞋子好像很贵似的，大家都为这意外感到____。</p>
-        <p class="a">答案：6 可惜</p>
+      <div class="essay-meta">
+        <p><span class="label">说明：</span>本模拟卷严格精选自 P5 CL 知识库中各校 2025 年五年级年终考试真题，包含最难的语文应用题目。</p>
+        <p><span class="label">题数：</span>30 题，每题 2 分，共 60 分</p>
       </div>
     </section>
 
-    <section class="card">
-      <h2><span class="em">🎯</span>B组 — 改错题</h2>
-      <p>两种题型：<strong>①错别字改正</strong>（括号里的字是错的，写出正确的字）　<strong>②用词不当</strong>（画线词语中有一个字不恰当，改正）</p>
-      <table>
-        <tr><th>错误类型</th><th>例子</th><th>正确答案</th></tr>
-        <tr><td>同音字混淆</td><td>包(活)</td><td>包括</td></tr>
-        <tr><td>形近字混淆</td><td>(须)皮</td><td>头皮</td></tr>
-        <tr><td>词义搭配不当</td><td>温暖的说</td><td>温柔地说</td></tr>
-      </table>
+    <div class="progress">
+      <span id="progress-label">已作答 0 / 30</span>
+      <div class="bar"><div class="bar-fill" id="progress-fill"></div></div>
+      <span id="progress-score">一次答对 0</span>
+    </div>
 
-      <h3>2025年真题示例</h3>
-      <div class="example-box">
-        <p class="q">妈妈看到桌上摆满了礼物，其中包(活)女儿用金色包装纸包好的礼物。</p>
-        <p class="a">答案：括</p>
-      </div>
-      <div class="example-box">
-        <p class="q">她蹲下身子，紧紧地把女儿抱在怀里，温暖地说...</p>
-        <p class="a">答案：温柔（"温暖"形容温度，"温柔"形容态度）</p>
-      </div>
-      <div class="example-box">
-        <p class="q">一向严(速)的父母不知该如何安慰我。</p>
-        <p class="a">答案：厉</p>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">🎯</span>短文填空 (Cloze Passage)</h2>
-      <h3>答题步骤</h3>
-      <ol class="tip-list">
-        <li><strong>第一遍</strong>：快速通读，了解主题</li>
-        <li><strong>第二遍</strong>：逐题作答，注意前后文</li>
-        <li><strong>第三遍</strong>：检查答案是否通顺</li>
-      </ol>
-      <h3>常考主题</h3>
-      <ul>
-        <li>亲情故事（父母之爱、孝顺）</li>
-        <li>友情故事（朋友互助、珍惜友情）</li>
-        <li>成长故事（从错误中学习、努力进步）</li>
-        <li>品德故事（诚实、勇敢、坚持）</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">📝</span>P5 必考词语表 (Units 1–8)</h2>
-      <h3>Unit 1–4 核心词语</h3>
-      <table>
-        <tr><th>词语</th><th>拼音</th><th>意思</th></tr>
-        <tr><td>互相配合</td><td>hù xiāng pèi hé</td><td>cooperate with each other</td></tr>
-        <tr><td>单独行动</td><td>dān dú xíng dòng</td><td>acting alone</td></tr>
-        <tr><td>海底探险</td><td>hǎi dǐ tàn xiǎn</td><td>undersea expedition</td></tr>
-        <tr><td>贵重物品</td><td>guì zhòng wù pǐn</td><td>valuables</td></tr>
-        <tr><td>齐心协力</td><td>qí xīn xié lì</td><td>work together as one</td></tr>
-        <tr><td>模糊了视线</td><td>mó hú le shì xiàn</td><td>blurred vision</td></tr>
-        <tr><td>营养不良</td><td>yíng yǎng bù liáng</td><td>malnutrition</td></tr>
-        <tr><td>异口同声</td><td>yì kǒu tóng shēng</td><td>in unison</td></tr>
-      </table>
-      <h3>Unit 5–8 核心词语</h3>
-      <table>
-        <tr><th>词语</th><th>拼音</th><th>意思</th></tr>
-        <tr><td>不约而同</td><td>bù yuē ér tóng</td><td>happen to coincide</td></tr>
-        <tr><td>全身湿透</td><td>quán shēn shī tòu</td><td>whole body drenched</td></tr>
-        <tr><td>呼吸困难</td><td>hū xī kùn nán</td><td>difficulty breathing</td></tr>
-        <tr><td>浮出水面</td><td>fú chū shuǐ miàn</td><td>surface above water</td></tr>
-        <tr><td>情绪激动</td><td>qíng xù jī dòng</td><td>feeling agitated</td></tr>
-        <tr><td>节省开支</td><td>jié shěng kāi zhī</td><td>save on spending</td></tr>
-        <tr><td>全力以赴</td><td>quán lì yǐ fù</td><td>make an all-out effort</td></tr>
-        <tr><td>孝顺长辈</td><td>xiào shùn zhǎng bèi</td><td>show respect to elders</td></tr>
-      </table>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">🔤</span>拼音重点 (Pinyin Focus)</h2>
-      <h3>易混淆声母</h3>
-      <ul>
-        <li><strong>z vs zh</strong>：自己(zì) vs 知道(zhī)</li>
-        <li><strong>c vs ch</strong>：粗心(cū) vs 吃饭(chī)</li>
-        <li><strong>s vs sh</strong>：思考(sī) vs 老师(shī)</li>
-        <li><strong>x vs s</strong>：学习(xué) vs 四个(sì)</li>
-      </ul>
-      <h3>易混淆韵母</h3>
-      <ul>
-        <li><strong>in vs ing</strong>：心情(xīn) vs 星星(xīng)</li>
-        <li><strong>en vs eng</strong>：认真(rèn) vs 风筝(zhēng)</li>
-        <li><strong>an vs ang</strong>：安全(ān) vs 帮忙(bāng)</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">📖</span>阅读理解问答题技巧</h2>
-      <h3>三步答题法</h3>
-      <ol class="tip-list">
-        <li><strong>定位</strong>：找到文中相关句子</li>
-        <li><strong>划线</strong>：划出关键信息</li>
-        <li><strong>整理</strong>：用自己的话组织答案</li>
-      </ol>
-      <h3>常见题型及答题模板</h3>
-      <div class="example-box">
-        <p class="q"><strong>题型1：人物反应</strong> — 问：某某的反应是什么？</p>
-        <p>答：[人物]的反应是[具体动作/表情]，[引用原文]。</p>
-      </div>
-      <div class="example-box">
-        <p class="q"><strong>题型2：道理/启示</strong> — 问：你从中学到了什么道理？</p>
-        <p>答：我认为[道理]值得我们学习。在文中，[举例说明]。在生活中，[实际应用]。</p>
-      </div>
-      <div class="example-box">
-        <p class="q"><strong>题型3：人物评价</strong> — 问：你认为某某是个怎样的人？</p>
-        <p>答：我认为[人物]是个[品质]的人。从文中[具体事例]可以看出。</p>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">⚡</span>考场应急技巧</h2>
-      <h3>时间分配（1小时40分钟）</h3>
-      <div class="overview-grid">
-        <div class="stat"><div class="label">语文应用A组</div><div class="value">10分钟</div></div>
-        <div class="stat"><div class="label">语文应用B组</div><div class="value">10分钟</div></div>
-        <div class="stat"><div class="label">短文填空</div><div class="value">15分钟</div></div>
-        <div class="stat"><div class="label">阅读理解一</div><div class="value">10分钟</div></div>
-        <div class="stat"><div class="label">完成对话</div><div class="value">10分钟</div></div>
-        <div class="stat"><div class="label">阅读理解二</div><div class="value">35分钟</div></div>
-        <div class="stat"><div class="label">检查</div><div class="value">10分钟</div></div>
-      </div>
-      <div class="adapt-box">
-        <p class="title">蒙题技巧</p>
-        <ul>
-          <li><strong>A组填空</strong>：如果不会，选<strong>动词</strong>或<strong>形容词</strong>的概率较高</li>
-          <li><strong>B组改错</strong>：常见错误是<strong>同音字</strong>，想想有没有更合适的同音字</li>
-          <li><strong>短文填空</strong>：注意<strong>关联词</strong>（因为...所以...、虽然...但是...）</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">📚</span>2025年真题高频考点总结</h2>
-      <p>根据 ACS Junior、Raffles、Henry Park、St Hilda、Ai Tong 等名校2025年试卷分析：</p>
-      <h3>最常考的10个词语</h3>
-      <div class="pill-row">
-        <span class="pill">恢复</span><span class="pill">大概</span><span class="pill">不仅...还...</span>
-        <span class="pill">取笑</span><span class="pill">可惜</span><span class="pill">拥有</span>
-        <span class="pill">不解</span><span class="pill">领取</span><span class="pill">沉默</span><span class="pill">凡是</span>
-      </div>
-      <h3>最常考的改错类型</h3>
-      <ul>
-        <li>包括（不是"包活"）</li>
-        <li>温柔（不是"温暖"）</li>
-        <li>严厉（不是"严速"）</li>
-        <li>委屈（不是"伟屈"）</li>
-        <li>迫不及待（不是"迫不及带"）</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">🎓</span>考前冲刺清单</h2>
-      <ul>
-        <li>✅ 背诵Units 1-8所有词语（共65个）</li>
-        <li>✅ 练习10篇短文填空</li>
-        <li>✅ 练习10组改错题</li>
-        <li>✅ 复习拼音易混淆点</li>
-        <li>✅ 做3套完整模拟卷</li>
-        <li>✅ 整理错题本</li>
-      </ul>
-    </section>
+    <div id="quiz-root"></div>
 
     <footer>
-      <p>Made by Claire · <a href="https://claire-hjx.vercel.app/index.html">back to home</a></p>
+      <p><a href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a></p>
     </footer>
   </div>
+
+<script>
+const QUESTIONS = [
+{ source:"南华小学 Q4", text:"从前，人们会用野__的骨头做成工具来打猎。",
+  options:["守","首","受","兽"], correct:4,
+  hint:"兽 (shòu) — wild beast",
+  explain:"野兽 (yě shòu, wild beasts) is the correct noun here. 守/首/受 are the wrong characters — they sound similar but don't fit." },
+
+{ source:"南华小学 Q10", text:"我常常说谎，这次______我怎么解释，他______不再相信我了。",
+  options:["不管……都","不仅……还","假如……就","只有……才"], correct:1,
+  hint:"不管……都 (bù guǎn...dōu) — no matter... still",
+  explain:"不管...都 (bù guǎn...dōu, no matter...still) fits best: \"No matter how I explain, he still won't believe me.\"" },
+
+{ source:"南华小学 Q13", text:"以下哪一个句子是正确的？",
+  options:[
+    "上五年级后，我们的各科作业都增添了不少。",
+    "我喜欢看故事书，因此作文分数增添了许多。",
+    "为了增添学习的乐趣，老师准备了很多游戏。",
+    "多做运动能增添我们的身体，让我们更健康。"], correct:3,
+  hint:"增添 (zēng tiān) — to add, only used with abstract nouns",
+  explain:"增添 (zēng tiān, to add) pairs only with abstract nouns like 乐趣 (lè qù, fun) — so only sentence (3) is correct.",
+  deepDive:`<p><strong>增添 (zēng tiān)</strong> means <em>to add / to increase</em>, but it is ONLY used with abstract nouns (things you cannot touch): 增添乐趣 ✅ · 增添信心 ✅ · 增添气氛 ✅. It is NOT used with physical objects.</p>
+    <table><thead><tr><th>Option</th><th>Noun</th><th>Correct word</th><th>Why wrong</th></tr></thead><tbody>
+    <tr><td>(1)</td><td>作业 zuò yè, homework</td><td>增加 zēng jiā</td><td>Homework is tangible; use 增加</td></tr>
+    <tr><td>(2)</td><td>分数 fēn shù, marks</td><td>提高 tí gāo</td><td>Marks go up; use 提高</td></tr>
+    <tr><td>(3)</td><td>乐趣 lè qù, fun</td><td>增添 ✅</td><td>Fun is abstract — perfect fit!</td></tr>
+    <tr><td>(4)</td><td>身体 shēn tǐ, body</td><td>增强 zēng qiáng</td><td>Body is physical; use 增强</td></tr>
+    </tbody></table>` },
+
+{ source:"南华小学 Q14", text:"以下哪一个句子是正确的？",
+  options:[
+    "他们的衣服很宽阔，夏天穿起来一点也不热。",
+    "这条马路很宽阔，能同时让六辆车并排行驶。",
+    "我家沙发很宽阔，全家人坐在上面也不觉得挤。",
+    "奶奶时常教育我凡事宽阔一点，不要斤斤计较。"], correct:2,
+  hint:"宽阔 (kuān kuò) — wide/spacious, for roads & open spaces",
+  explain:"宽阔 (kuān kuò, wide/spacious) describes roads & open spaces — only sentence (2) uses it correctly.",
+  deepDive:`<p><strong>宽阔 (kuān kuò)</strong> means spacious/wide, used ONLY for large open spaces (roads, rivers, plains).</p>
+    <table><thead><tr><th>Option</th><th>Noun</th><th>Correct word</th><th>Why wrong</th></tr></thead><tbody>
+    <tr><td>(1)</td><td>衣服 yī fu, clothes</td><td>宽松 kuān sōng</td><td>Clothes use 宽松</td></tr>
+    <tr><td>(2)</td><td>马路 mǎ lù, road</td><td>宽阔 ✅</td><td>Roads are wide spaces — perfect!</td></tr>
+    <tr><td>(3)</td><td>沙发 shā fā, sofa</td><td>宽大 kuān dà</td><td>Furniture uses 宽大</td></tr>
+    <tr><td>(4)</td><td>做人 zuò rén, personality</td><td>宽容 kuān róng</td><td>Personality uses 宽容/宽厚</td></tr>
+    </tbody></table>
+    <p style="margin-top:10px;"><strong>The "宽" family:</strong> 宽阔 kuān kuò — roads, rivers, open spaces · 宽松 kuān sōng — clothes, schedule, environment · 宽大 kuān dà — furniture, rooms, clothing size · 宽厚 kuān hòu — personality (kind/generous) · 宽容 kuān róng — forgiveness / tolerance</p>` },
+
+{ source:"南华小学 Q15", text:"以下哪一个句子是正确的？",
+  options:[
+    "老奶奶跌倒了，路人都异口同声地跑过去扶她。",
+    "老师一提出问题，小明便异口同声地抢着回答。",
+    "他提议今天去圣淘沙玩，我们异口同声地说好。",
+    "考完试后，同学们异口同声地讨论题目的答案。"], correct:3,
+  hint:"异口同声 (yì kǒu tóng shēng) — everyone saying the exact same thing together",
+  explain:"异口同声 (yì kǒu tóng shēng, in unison) means everyone saying the exact same thing together — only sentence (3) fits, where everyone says \"好\" together." },
+
+{ source:"乐赛学校 Q9", text:"他_不要浪费食物，_把剩下的食物都吃完。",
+  options:["除了……还有","反正……不如","为了……只好","不是……而是"], correct:4,
+  hint:"不是……而是 (bú shì...ér shì) — not... but rather",
+  explain:"不是...而是 (bú shì...ér shì, not...but rather) fits: \"Not [to] waste food, but rather finish it all.\"" },
+
+{ source:"乐赛学校 Q10", text:"小华____长大了，妈妈____叫他「宝宝」。",
+  options:["已经……还","不但……还","如果……就","自从……就"], correct:1,
+  hint:"已经……还 (yǐ jīng...hái) — already... still",
+  explain:"已经...还 (yǐ jīng...hái, already...still) fits: \"Already grown up, but mom still calls him 'baby'.\"" },
+
+{ source:"乐赛学校 Q13", text:"以下哪个句子是正确的？",
+  options:[
+    "学校附近有个咖啡店，走过一条马路便到了。",
+    "他们从小就是很附近的朋友，常常一起玩耍。",
+    "那只小狗闻到食物的味道，慢慢附近我这里。",
+    "小强把他的椅子推过来，附近其他人一起坐。"], correct:1,
+  hint:"附近 (fù jìn) — nearby, a physical location",
+  explain:"附近 (fù jìn, nearby) describes a physical location. Only sentence (1) uses it correctly as a place." },
+
+{ source:"乐赛学校 Q14", text:"以下哪个句子是正确的？",
+  options:[
+    "新年要到了，同学们一起把课堂制造得非常干净。",
+    "妈妈知道他今晚会回来，特别制造了美味的晚餐。",
+    "今天功课好难，我们要用学会的字制造一个句子。",
+    "为了节省力气，我想制造一个会做家务的机器人。"], correct:4,
+  hint:"制造 (zhì zào) — to manufacture, for machines/industrial products",
+  explain:"制造 (zhì zào, to manufacture) is for machines/industrial products — only sentence (4), building a robot, fits.",
+  deepDive:`<p><strong>制造 (zhì zào)</strong> means to manufacture/build, usually for machines, equipment, or industrial products.</p>
+    <table><thead><tr><th>Option</th><th>Action</th><th>Correct word</th><th>Why wrong</th></tr></thead><tbody>
+    <tr><td>(1)</td><td>打扫课堂, clean classroom</td><td>打扫 dǎ sǎo</td><td>You don't "manufacture" cleanliness</td></tr>
+    <tr><td>(2)</td><td>煮晚餐, cook dinner</td><td>准备 zhǔn bèi</td><td>Cooking ≠ manufacturing</td></tr>
+    <tr><td>(3)</td><td>写句子, make a sentence</td><td>造句 zào jù</td><td>Chinese uses 造句, not 制造</td></tr>
+    <tr><td>(4)</td><td>做机器人, build a robot</td><td>制造 ✅</td><td>Robots are machines — perfect!</td></tr>
+    </tbody></table>
+    <p style="margin-top:10px;"><strong>The "做/造" family:</strong> 制造 zhì zào — machines, vehicles, industrial products · 制作 zhì zuò — handicrafts, food, art, TV programmes · 创造 chuàng zào — miracles, records, new inventions · 建造 jiàn zào — buildings, bridges, large structures</p>` },
+
+{ source:"乐赛学校 Q15", text:"以下哪个句子是正确的？",
+  options:[
+    "爸爸忙了半天，才把不见的书本恢复了。",
+    "奶奶在家休息了两天，终于恢复了健康。",
+    "弟弟很懂事，他会把玩具恢复到柜子里。",
+    "姐姐读了同学写的电邮后，立刻恢复她。"], correct:2,
+  hint:"恢复 (huī fù) — to recover, used for health/confidence",
+  explain:"恢复 (huī fù, to recover) is for health/confidence — only sentence (2) is correct. Replying to emails uses 回复 (huí fù), not 恢复." },
+
+{ source:"南洋小学 Q6", text:"自从去英国游玩后，表哥就_了搬到那儿居住的想法。",
+  options:["增添","露出","构成","产生"], correct:4,
+  hint:"产生 (chǎn shēng) — to generate/arise, pairs with abstract nouns like 想法",
+  explain:"产生 (chǎn shēng, to generate/arise) pairs with abstract nouns like 想法 (xiǎng fǎ, ideas) — an idea arising is 产生, not 增添/露出/构成.",
+  deepDive:`<p><strong>产生 (chǎn shēng)</strong> means to generate / to arise / to come into being. It pairs naturally with abstract nouns that appear from nothing: 产生想法 (generate an idea) · 产生兴趣 (develop an interest) · 产生疑问 (raise a doubt) · 产生感情 (develop feelings).</p>
+    <p style="margin-top:8px;"><strong>Why the others are wrong:</strong><br>(1) 增添 (zēng tiān, to add) — implies adding more of something already there. An idea arises from scratch, not from adding.<br>(2) 露出 (lù chū, to reveal/show) — used for visible expressions like 露出笑容 or 露出马脚.<br>(3) 构成 (gòu chéng, to constitute) — used when parts form a whole, like 构成威胁 or 构成一幅画.</p>
+    <p style="margin-top:8px;">💡 Rule of thumb: when you see 想法, 兴趣, or 疑问, the verb is almost always 产生!</p>` },
+
+{ source:"南洋小学 Q9", text:"他____随便作答，____仔细地读每一道题目。",
+  options:["就算……还是","不是……而是","因为……所以","不仅……而且"], correct:2,
+  hint:"不是……而是 (bú shì...ér shì) — not... but rather",
+  explain:"不是...而是 (bú shì...ér shì, not...but rather) fits: \"Not answer randomly, but read carefully.\"" },
+
+{ source:"南洋小学 Q13", text:"以下哪一个句子是正确的？",
+  options:[
+    "我和小松从小就认识，培育了很深厚的友情。",
+    "奶奶很好学，最近又报名参加了电脑培育班。",
+    "老师要我从小培育好习惯，成为一个有用的人。",
+    "父母辛勤地培育我们，我们长大后要记得报恩。"], correct:4,
+  hint:"培育 (péi yù) — to nurture, strictly for living things",
+  explain:"培育 (péi yù, to nurture) is for living things/people — only sentence (4), parents nurturing children, fits.",
+  deepDive:`<p><strong>培育 (péi yù, to nurture/cultivate)</strong> is STRICTLY for living things — plants, children, youth, and talents.</p>
+    <table><thead><tr><th>Option</th><th>Noun</th><th>Correct word</th><th>Why wrong</th></tr></thead><tbody>
+    <tr><td>(1)</td><td>友情 yǒu qíng, friendship</td><td>培养 péi yǎng</td><td>Friendship isn't alive</td></tr>
+    <tr><td>(2)</td><td>电脑班, computer class</td><td>培训 péi xùn</td><td>Classes use 培训</td></tr>
+    <tr><td>(3)</td><td>好习惯, good habits</td><td>培养 péi yǎng</td><td>Habits aren't alive</td></tr>
+    <tr><td>(4)</td><td>我们, us/children</td><td>培育 ✅</td><td>Parents nurturing children — perfect!</td></tr>
+    </tbody></table>
+    <p style="margin-top:10px;"><strong>The "培" family:</strong> 培养 péi yǎng — habits, abilities, hobbies, feelings, interests · 培育 péi yù — living things: plants, children, youth, talents · 培训 péi xùn — skills training: classes, courses, employees</p>
+    <p style="margin-top:8px;">💡 Easy trick: ask yourself — is it alive? Yes → 培育. No → 培养 (abstract things) or 培训 (skills).</p>` },
+
+{ source:"南洋小学 Q14", text:"以下哪一个句子是正确的？",
+  options:[
+    "他做事一向很详细，通常不会出现错误。",
+    "护士很详细地照顾爷爷，我们很感谢她。",
+    "年终考试前，我制定了详细的学习计划。",
+    "在做出任何决定前，我必须先详细思考。"], correct:3,
+  hint:"详细 (xiáng xì) — detailed, describes plans & descriptions",
+  explain:"详细 (xiáng xì, detailed) describes nouns with lots of detail, like plans — only sentence (3) is correct.",
+  deepDive:`<p><strong>详细 (xiáng xì, detailed)</strong> describes things that contain or present a lot of details — such as plans, descriptions, explanations, and reports. It is NOT used to describe personality or actions.</p>
+    <table><thead><tr><th>Option</th><th>Usage</th><th>Correct word</th><th>Why wrong</th></tr></thead><tbody>
+    <tr><td>(1)</td><td>做事一向很详细</td><td>细心 xì xīn</td><td>Personality trait → 细心</td></tr>
+    <tr><td>(2)</td><td>详细地照顾爷爷</td><td>细心/悉心</td><td>Caring for someone → 细心/悉心</td></tr>
+    <tr><td>(3)</td><td>详细的学习计划</td><td>详细 ✅</td><td>A plan with details — perfect!</td></tr>
+    <tr><td>(4)</td><td>详细思考</td><td>仔细 zǐ xì</td><td>The action of thinking → 仔细思考</td></tr>
+    </tbody></table>
+    <p style="margin-top:10px;"><strong>The "细" family:</strong> 详细 xiáng xì — nouns with detail: plans, descriptions, explanations, reports · 细心 xì xīn — personality: careful, meticulous people · 仔细 zǐ xì — actions done thoroughly: thinking, checking · 悉心 xī xīn — giving full attention: caring, nurturing</p>
+    <p style="margin-top:8px;">💡 Noun with detail → 详细. Person/personality → 细心. Action (thinking, checking) → 仔细.</p>` },
+
+{ source:"南洋小学 Q15", text:"以下哪一个句子是正确的？",
+  options:[
+    "无论困难有多大，也改变不了我坚固的意志。",
+    "这座木桥建成已有很多年了，但依然很坚固。",
+    "我们要时常复习功课，坚固我们所学的知识。",
+    "由于经常做运动，我的身体变得更加坚固了。"], correct:2,
+  hint:"坚固 (jiān gù) — sturdy/solid, for physical structures",
+  explain:"坚固 (jiān gù, sturdy/solid) describes physical structures like bridges — only sentence (2) is correct, not willpower or bodies." },
+
+{ source:"恒力小学 Q5", text:"为了有_的睡眠，欢欢每天晚上八点就上床睡觉。",
+  options:["丰富","丰盛","充实","充足"], correct:4,
+  hint:"充足 (chōng zú) — sufficient/adequate",
+  explain:"充足 (chōng zú, sufficient/adequate) pairs perfectly with 睡眠 (shuì mián, sleep)." },
+
+{ source:"恒力小学 Q9", text:"_我已经完成作业，可以陪你去看电影。",
+  options:["如果","即使","为了","反正"], correct:4,
+  hint:"反正 (fǎn zhèng) — anyway/in any case",
+  explain:"反正 (fǎn zhèng, anyway/in any case) fits: \"Anyway, I've finished homework, so I can go.\"" },
+
+{ source:"恒力小学 Q13", text:"以下哪一个句子是正确的？",
+  options:[
+    "姐姐和妈妈交流，要在六月假期中到日本去游玩。",
+    "弟弟新买的玩具坏了，他一定要和哥哥交流玩具。",
+    "爷爷和手机进行交流后，让他学到了很多新知识。",
+    "丽丽参加国外的学习活动，和各国学生进行交流。"], correct:4,
+  hint:"交流 (jiāo liú) — to exchange/communicate, for exchanging ideas with people",
+  explain:"交流 (jiāo liú, to exchange/communicate) means exchanging ideas with people — only sentence (4) is correct. Not for toys or phones." },
+
+{ source:"恒力小学 Q14", text:"以下哪一个句子是正确的？",
+  options:[
+    "爸爸刷牙时突然有了灵感，决定下午去游泳。",
+    "华强突然有了画画的灵感，立刻把画画出来。",
+    "小红看了美食节目后，有灵感要吃红烧排骨。",
+    "文明看着妈妈工作辛苦，心里禁不住有灵感。"], correct:2,
+  hint:"灵感 (líng gǎn) — inspiration/creative spark, for art and writing",
+  explain:"灵感 (líng gǎn, inspiration/creative spark) pairs with art and writing, not swimming or eating — only sentence (2) is correct." },
+
+{ source:"恒力小学 Q15", text:"以下哪一个句子是正确的？",
+  options:[
+    "小安打扫时，无意间发现一个藏在书架上的盒子。",
+    "乐乐无意间跑得很快，结果赢了这次的短跑比赛。",
+    "课室的桌椅很整齐，老师无意间表扬了全班同学。",
+    "弟弟无意间的恶作剧，让妹妹难过地大哭了起来。"], correct:1,
+  hint:"无意间 (wú yì jiān) — unintentionally/by accident",
+  explain:"无意间 (wú yì jiān, unintentionally/by accident) — finding a hidden box while cleaning fits perfectly, so (1) is correct." },
+
+{ source:"如切小学 Q6", text:"林叔叔很_，常常捐钱给穷苦的人。",
+  options:["幽默","慷慨","孝顺","诚实"], correct:2,
+  hint:"慷慨 (kāng kǎi) — generous",
+  explain:"慷慨 (kāng kǎi, generous) pairs with donating money to the poor." },
+
+{ source:"如切小学 Q8", text:"哥哥正要出门时，偏偏下起了大雨。画线词语的意思是：",
+  options:["完全没想到的事","对事情感到惊讶","事实跟愿望相反","想不到任何办法"], correct:3,
+  hint:"偏偏 (piān piān) — contrary to expectations",
+  explain:"偏偏 (piān piān, contrary to expectations) — unfortunately, just when you didn't want it to happen." },
+
+{ source:"如切小学 Q13", text:"以下哪一个句子是正确的？",
+  options:[
+    "妈妈一直和她以前的同学保持联系。",
+    "我用绳子把所有的珠子联系在一起。",
+    "他们前几天吵架，联系越来越差了。",
+    "朋友之间好好联系，共同解决问题。"], correct:1,
+  hint:"保持联系 (bǎo chí lián xì) — maintain contact, a fixed phrase",
+  explain:"保持联系 (bǎo chí lián xì, maintain contact) is a fixed phrase — only sentence (1) uses 联系 correctly." },
+
+{ source:"如切小学 Q14", text:"以下哪一个句子是正确的？",
+  options:[
+    "他学习很努力，成绩到底很优秀。",
+    "平板电脑很贵，到底是非常好用。",
+    "天气太热了，到底树下阴凉许多。",
+    "没有人知道天上到底有多少星星。"], correct:4,
+  hint:"到底 (dào dǐ) — exactly/after all",
+  explain:"到底 (dào dǐ, exactly/after all) — \"No one knows exactly how many stars there are\" is the correct use." },
+
+{ source:"如切小学 Q15", text:"以下哪一个句子是正确的？",
+  options:[
+    "分好组后，我们七嘴八舌地开始讨论。",
+    "放学后，我和姐姐七嘴八舌地走回家。",
+    "小丽在演讲时，同学们七嘴八舌地听。",
+    "升旗礼时，同学们七嘴八舌地唱国歌。"], correct:1,
+  hint:"七嘴八舌 (qī zuǐ bā shé) — everyone talking at once",
+  explain:"七嘴八舌 (qī zuǐ bā shé, everyone talking at once) fits a group discussion, not walking or singing — so (1) is correct." },
+
+{ source:"道南学校 Q7", text:"爬山队大概还需要一天的时间才能登上山顶。画线词语的意思是：",
+  options:["差不多","不太可能","完全一样","比想象的多"], correct:1,
+  hint:"大概 (dà gài) — roughly/approximately",
+  explain:"大概 (dà gài, roughly/approximately) is synonymous with 差不多 (chà bu duō)." },
+
+{ source:"道南学校 Q9", text:"____大家齐心协力，____能顺利完成任务。",
+  options:["只要……就","不仅……也","凡是……都","尽管……还"], correct:1,
+  hint:"只要……就 (zhǐ yào...jiù) — as long as... then",
+  explain:"只要...就 (zhǐ yào...jiù, as long as...then) fits: \"As long as we work together, we will complete it.\"" },
+
+{ source:"道南学校 Q13", text:"以下哪一个句子是正确的？",
+  options:[
+    "小文的脸上长了几颗青春痘，令她十分烦恼。",
+    "弟弟总是自己的事情自己做，不喜欢烦恼别人。",
+    "烦恼你再多等一下，我保证很快完成这项工作。",
+    "阴沉沉的天气让他心情烦恼，整个人无精打采的。"], correct:1,
+  hint:"烦恼 (fán nǎo) — annoyed/troubled",
+  explain:"烦恼 (fán nǎo, annoyed/troubled) — acne causes annoyance, so (1) is correct. You don't \"烦恼\" others (use 麻烦 má fan for that)." },
+
+{ source:"道南学校 Q14", text:"以下哪一个句子是正确的？",
+  options:[
+    "华文测验快到了，我每天都恢复到半夜。",
+    "我一收到林老师的邮件，就赶紧恢复她。",
+    "经过半年的努力，哥哥终于恢复了自信。",
+    "我改掉了坏习惯，不再恢复同样的行为。"], correct:3,
+  hint:"恢复 (huī fù) — to recover, for health/confidence",
+  explain:"恢复 (huī fù, to recover) is for health/confidence — only sentence (3) is correct. Replying to emails uses 回复 (huí fù), not 恢复." },
+
+{ source:"道南学校 Q15", text:"以下哪一个句子是正确的？",
+  options:[
+    "爸爸保持我参加比赛，我决定不让他失望。",
+    "管理员提醒我，在图书馆里必须保持安静。",
+    "老师指定我做班长，负责保持班上的秩序。",
+    "哥哥每天保持写作，作文成绩进步了许多。"], correct:2,
+  hint:"保持 (bǎo chí) — to maintain a state",
+  explain:"保持 (bǎo chí, to maintain) describes maintaining a state — 保持安静 (bǎo chí ān jìng, keep quiet) is correct, so (2) is right." }
+];
+
+const root = document.getElementById('quiz-root');
+const progressLabel = document.getElementById('progress-label');
+const progressScore = document.getElementById('progress-score');
+const progressFill = document.getElementById('progress-fill');
+let answered = 0, firstTry = 0;
+const total = QUESTIONS.length;
+
+function updateProgress() {
+  progressLabel.textContent = `已作答 ${answered} / ${total}`;
+  progressScore.textContent = `一次答对 ${firstTry}`;
+  progressFill.style.width = (answered / total * 100) + '%';
+}
+
+QUESTIONS.forEach((q, qi) => {
+  const card = document.createElement('div');
+  card.className = 'q-card';
+
+  const head = document.createElement('div');
+  head.className = 'q-head';
+  head.innerHTML = `<span class="q-num">Q${qi+1}.</span><span class="q-source">${q.source}</span>`;
+  card.appendChild(head);
+
+  const textEl = document.createElement('div');
+  textEl.className = 'q-text';
+  textEl.textContent = q.text;
+  card.appendChild(textEl);
+
+  const list = document.createElement('ul');
+  list.className = 'q-options';
+
+  const hintBox = document.createElement('div');
+  hintBox.className = 'hint-box';
+  hintBox.style.display = 'none';
+  hintBox.innerHTML = `💡 拼音提示： <strong>${q.hint}</strong>`;
+
+  const answerBox = document.createElement('div');
+  answerBox.className = 'answer-box';
+  answerBox.style.display = 'none';
+
+  let wrongAttempts = 0;
+  let resolved = false;
+
+  function revealFull(gotItRight) {
+    resolved = true;
+    card.classList.add('is-revealed');
+    if (gotItRight) card.classList.add('is-correct');
+    answerBox.innerHTML = `<strong class="ans-tag">✅ 答案 (${q.correct})</strong> — ${q.explain}`;
+    answerBox.style.display = 'block';
+    const btns = list.querySelectorAll('.opt');
+    btns.forEach((b, i) => {
+      b.disabled = true;
+      if (i + 1 === q.correct) b.classList.add('correct-answer');
+      else b.classList.add('dim');
+    });
+    answered++;
+    if (gotItRight && wrongAttempts === 0) firstTry++;
+    updateProgress();
+
+    if (q.deepDive) {
+      const details = document.createElement('details');
+      details.className = 'deep-box';
+      details.innerHTML = `<summary>🔍 深度解析</summary><div style="margin-top:8px;">${q.deepDive}</div>`;
+      card.appendChild(details);
+    }
+  }
+
+  q.options.forEach((optText, i) => {
+    const li = document.createElement('li');
+    const btn = document.createElement('button');
+    btn.className = 'opt';
+    btn.type = 'button';
+    btn.textContent = `(${i+1}) ${optText}`;
+    btn.addEventListener('click', () => {
+      if (resolved) return;
+      const chosen = i + 1;
+      if (chosen === q.correct) {
+        revealFull(true);
+      } else {
+        wrongAttempts++;
+        btn.classList.add('chosen-wrong');
+        btn.disabled = true;
+        if (wrongAttempts === 1) {
+          hintBox.style.display = 'block';
+        } else {
+          revealFull(false);
+        }
+      }
+    });
+    li.appendChild(btn);
+    list.appendChild(li);
+  });
+
+  card.appendChild(list);
+  card.appendChild(hintBox);
+  card.appendChild(answerBox);
+  root.appendChild(card);
+});
+
+updateProgress();
+</script>
 </body>
 </html>

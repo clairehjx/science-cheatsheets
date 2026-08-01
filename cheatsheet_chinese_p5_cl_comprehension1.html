@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="gate.js"></script>
-  <title>P5 CL 阅读理解一 Cheat Sheet · by Claire</title>
-  <meta name="description" content="P5 Chinese Language Comprehension 1 (阅读理解一) cheat sheet — 4 question types, common traps, and a full practice passage, by Claire.">
+  <title>P5 CL 阅读理解一高难度模拟卷 · by Claire</title>
+  <meta name="description" content="P5 Chinese Language mock paper — 2 reading comprehension passages (10 MCQs) from real 2025 P5 year-end exams, with a try-it-yourself reveal flow: wrong once unlocks pinyin, wrong twice unlocks the answer and explanation.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,7 @@
       --ink:#1c3a5e; --ink-soft:#4a6585; --blue:#2b6cb0; --blue-deep:#1f5290;
       --blue-bright:#4a90d9; --sky:#a8d8ea; --wash:#cfe8ff; --mist:#e3f2fd;
       --paper:#f4f9ff; --card:#ffffff; --lilac:#e6d9ff; --lilac-deep:#c9b3f0;
+      --green:#2f9e63; --green-bg:#e3f7ec; --red:#c0392b; --red-bg:#fdeceb;
       --shadow:0 10px 30px rgba(43,108,176,0.14); --shadow-sm:0 4px 14px rgba(43,108,176,0.12);
       --radius:22px;
     }
@@ -50,62 +51,68 @@
       font-size:.8rem; letter-spacing:.6px; text-transform:uppercase;
       padding:6px 14px; border-radius:999px; box-shadow:var(--shadow-sm); margin-bottom:16px;
     }
-    .hero h1 { font-size:clamp(1.6rem,5vw,2.5rem); color:var(--ink); line-height:1.25; }
-    .hero p { color:var(--ink-soft); font-weight:600; max-width:50ch; margin:14px auto 0; }
+    .hero h1 { font-size:clamp(1.5rem,4.6vw,2.3rem); color:var(--ink); line-height:1.3; }
+    .hero p { color:var(--ink-soft); font-weight:600; max-width:56ch; margin:14px auto 0; }
 
     .card {
       background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:26px 28px; margin-top:24px;
+      padding:22px 24px; margin-top:20px;
     }
-    .card h2 { color:var(--blue-deep); font-size:1.35rem; margin-bottom:6px; }
-    .card h2 .em { margin-right:8px; }
-    .card h3 { color:var(--ink); font-size:1.05rem; margin:18px 0 8px; }
-    .card p { margin:8px 0; }
-    .card ul, .card ol { margin:8px 0 8px 22px; }
-    .card li { margin:5px 0; }
+    .card h2 { color:var(--blue-deep); font-size:1.25rem; margin-bottom:6px; }
+    .card p { margin:6px 0; }
 
-    .overview-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:14px; }
-    .overview-grid .stat { background:var(--mist); border-radius:14px; padding:12px 14px; }
-    .overview-grid .stat .label { font-size:.75rem; font-weight:800; color:var(--blue); text-transform:uppercase; letter-spacing:.4px; }
-    .overview-grid .stat .value { font-weight:700; margin-top:3px; }
+    .essay-meta { background:var(--mist); border-radius:14px; padding:12px 16px; font-size:.9rem; }
+    .essay-meta p { margin:2px 0; }
+    .essay-meta .label { font-weight:800; color:var(--blue-deep); }
 
-    table { width:100%; border-collapse:collapse; margin:12px 0; }
-    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--mist); }
-    th { color:var(--blue-deep); font-size:.85rem; text-transform:uppercase; letter-spacing:.3px; }
+    .progress {
+      position:sticky; top:10px; z-index:5;
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      background:rgba(255,255,255,0.92); backdrop-filter:blur(6px);
+      border-radius:14px; padding:10px 16px; margin-top:16px; box-shadow:var(--shadow-sm);
+      font-size:.85rem; font-weight:700; color:var(--blue-deep);
+    }
+    .progress .bar { flex:1; height:8px; background:var(--wash); border-radius:99px; overflow:hidden; margin:0 4px; }
+    .progress .bar-fill { height:100%; background:var(--blue-bright); width:0%; transition:width .25s; }
 
-    .pill-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
-    .pill { background:var(--wash); color:var(--blue-deep); font-weight:700; font-size:.85rem; padding:6px 13px; border-radius:999px; }
-    .pill.lilac { background:var(--lilac); color:#5b3a9e; }
+    .section-title { margin:26px 2px 4px; font-size:1.1rem; color:var(--blue-deep); }
 
-    .passage-box {
+    .passage {
       background:var(--paper); border:2px solid var(--wash); border-radius:18px;
-      padding:18px 20px; margin:14px 0;
+      padding:18px 20px; margin-top:14px; font-size:.96rem;
     }
+    .passage p { margin:10px 0; }
 
-    .type-box {
-      background:var(--mist); border-radius:16px; padding:14px 18px; margin:10px 0;
+    .q-card {
+      background:var(--card); border-radius:18px; box-shadow:var(--shadow-sm);
+      padding:18px 20px; margin-top:14px; border:2px solid transparent;
     }
-    .type-box .title { font-weight:800; color:var(--blue-deep); margin-bottom:4px; }
+    .q-card.is-correct { border-color:var(--green); }
+    .q-card.is-revealed:not(.is-correct) { border-color:var(--red); }
+    .q-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; margin-bottom:6px; }
+    .q-num { font-weight:800; color:var(--blue-deep); }
+    .q-source { font-size:.78rem; color:var(--ink-soft); background:var(--mist); padding:3px 9px; border-radius:999px; font-weight:700; }
+    .q-text { font-size:1rem; margin:6px 0 12px; }
 
-    .trap-box {
-      background:linear-gradient(135deg,#ffe3e8,#ffc9d4); border-radius:16px;
-      padding:14px 18px; margin-top:10px;
+    .q-options { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .q-options li { margin:0; }
+    .opt {
+      width:100%; text-align:left; font:inherit; font-size:.95rem; color:var(--ink);
+      background:var(--paper); border:2px solid var(--wash); border-radius:12px;
+      padding:9px 14px; cursor:pointer; transition:background .12s, border-color .12s, transform .08s;
     }
-    .trap-box .title { font-weight:800; color:#9e2a44; margin-bottom:6px; }
+    .opt:hover:not(:disabled) { border-color:var(--blue-bright); transform:translateX(2px); }
+    .opt:disabled { cursor:default; }
+    .opt.chosen-wrong { background:var(--red-bg); border-color:var(--red); color:var(--red); }
+    .opt.correct-answer { background:var(--green-bg); border-color:var(--green); color:var(--green); font-weight:800; }
+    .opt.dim { opacity:.55; }
 
-    .quiz-item { margin:14px 0; }
-    .quiz-item .q { font-weight:700; margin-bottom:6px; }
-    .quiz-item ul { list-style:none; margin:0; }
-    .quiz-item li { margin:3px 0; }
-
-    .answer-box {
-      background:linear-gradient(135deg,#e6fff0,#c9f5da); border-radius:16px;
-      padding:14px 18px; margin-top:14px;
+    .hint-box, .answer-box {
+      border-radius:12px; padding:10px 16px; margin-top:12px; font-size:.88rem;
     }
-    .answer-box .title { font-weight:800; color:#1e7a4c; margin-bottom:6px; }
-    .answer-box strong { color:#1e7a4c; }
-
-    .tip-list li::marker { color:var(--blue); font-weight:800; }
+    .hint-box { background:var(--lilac); color:#4a3878; }
+    .answer-box { background:var(--green-bg); color:#1f5c3a; }
+    .answer-box strong.ans-tag { color:var(--green); }
 
     footer { text-align:center; color:var(--ink-soft); font-weight:600; margin-top:40px; }
     footer a { font-weight:800; }
@@ -118,155 +125,203 @@
     </div>
 
     <header class="hero">
-      <span class="eyebrow">🀄 Chinese Cheat Sheet</span>
-      <h1>P5 阅读理解一<br>Comprehension 1</h1>
-      <p>2025 WA3 &amp; EOY revision — the 4 question types, common MCQ traps, and a full practice passage.</p>
+      <span class="eyebrow">🀄 Chinese Mock Paper · 阅读理解一</span>
+      <h1>P5 CL 阅读理解一高难度模拟卷</h1>
+      <p>2 real past-year comprehension passages (10 MCQs total) from 2025 P5 year-end exams. Try each one — get it wrong once and a pinyin hint unlocks; get it wrong twice (or right first try) and the full answer + explanation unlocks.</p>
     </header>
 
     <section class="card">
-      <h2><span class="em">📋</span>Exam Format &amp; Time</h2>
-      <table>
-        <tr><th>Section</th><th>Questions</th><th>Marks</th><th>Type</th><th>Time</th></tr>
-        <tr><td>阅读理解一</td><td>5</td><td>10</td><td>多项选择题 (MCQ)</td><td>10分钟内</td></tr>
-      </table>
-      <p>每题2分，共5题。虽然只有5题，但因为是选择题，往往暗藏陷阱，需要细心比对。</p>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">📈</span>2025年出题趋势</h2>
-      <ol class="tip-list">
-        <li><strong>篇章字数精简但内涵加深</strong>：文章长度约200–250字，句子结构更复杂，需要理解言外之意</li>
-        <li><strong>四字词语/成语考查增加</strong>：如灵机一动、无人问津、恍然大悟，并针对这些词语出题</li>
-        <li><strong>注重"同理心"与"解决问题"</strong>：主题集中在校园生活、社区服务、家庭误会</li>
-        <li><strong>选项更具迷惑性</strong>：错误选项是"半真半假"，而非完全无关</li>
-      </ol>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">🎯</span>四大核心题型与破解技巧</h2>
-
-      <div class="type-box">
-        <p class="title">题型一：细节理解题（约占2题）</p>
-        <p><strong>问法：</strong>根据短文，谁/什么时候/在哪里/做了什么？</p>
-        <p><strong>破解技巧：</strong>"关键词定位法" — 圈出题目中的关键词（人名、时间、地点），回到原文找到对应的句子。注意同义替换（原文说"清晨"，选项可能是"天刚亮"）。</p>
-      </div>
-
-      <div class="type-box">
-        <p class="title">题型二：词义理解题（约占1题）</p>
-        <p><strong>问法：</strong>短文中"……"的意思是什么？/ 画线词语指的是什么？</p>
-        <p><strong>破解技巧：</strong>"代入排除法" — 不要只看字面意思，联系上下文。把四个选项分别代入原文画线处，读起来最通顺、最符合逻辑的就是正确答案。</p>
-      </div>
-
-      <div class="type-box">
-        <p class="title">题型三：推理判断题（约占1–2题）</p>
-        <p><strong>问法：</strong>为什么……？/ 从文中可以看出某某是个怎样的人？/ 接下来可能会发生什么？</p>
-        <p><strong>破解技巧：</strong>"线索追踪法" — 答案必须基于文中的动作、表情、语言。例如：文中写"他握紧了拳头，咬着嘴唇"，推断出他"很生气/在忍耐"，而不是"他很冷"。</p>
-      </div>
-
-      <div class="type-box">
-        <p class="title">题型四：主旨/启示题（约占0–1题）</p>
-        <p><strong>问法：</strong>这篇短文告诉我们什么道理？/ 最适合的标题是什么？</p>
-        <p><strong>破解技巧：</strong>"首尾聚焦法" — 重点关注文章的第一句（背景引入）和最后一句（总结感悟）。道理题通常与"品德、成长、亲情"有关。</p>
+      <div class="essay-meta">
+        <p><span class="label">说明：</span>根据短文的内容和上下文的意思，选出适当的答案。</p>
+        <p><span class="label">题数：</span>2 篇，共 10 题，每题 2 分，共 20 分</p>
       </div>
     </section>
 
-    <section class="card">
-      <h2><span class="em">⚠️</span>常见陷阱大揭秘</h2>
-      <div class="trap-box">
-        <p class="title">1. 偷换概念</p>
-        <p>原文："<strong>有些</strong>同学参加了比赛。" 选项："<strong>所有</strong>同学都参加了比赛。"（❌ 错在绝对化词语：所有、一定、全部）</p>
-      </div>
-      <div class="trap-box">
-        <p class="title">2. 答非所问</p>
-        <p>题目：小明<strong>为什么</strong>迟到？ 选项：小明<strong>气喘吁吁地</strong>跑进教室。（❌ 这是"怎么迟到/迟到的表现"，不是"原因"）</p>
-      </div>
-      <div class="trap-box">
-        <p class="title">3. 无中生有</p>
-        <p>选项内容在常识上是对的，但短文中完全没有提到。切记：答案必须在文中！</p>
-      </div>
-      <div class="trap-box">
-        <p class="title">4. 因果倒置</p>
-        <p>原文：因为下大雨，所以比赛取消了。 选项：比赛取消了，因此下大雨。（❌ 逻辑反了）</p>
-      </div>
-    </section>
+    <div class="progress">
+      <span id="progress-label">已作答 0 / 10</span>
+      <div class="bar"><div class="bar-fill" id="progress-fill"></div></div>
+      <span id="progress-score">一次答对 0</span>
+    </div>
 
-    <section class="card">
-      <h2><span class="em">📝</span>2025真题风格模拟演练</h2>
-      <p>以下模拟篇章和题目按照2025年WA3/EOY的难度和主题（校园爱心义卖/解决问题）编写。</p>
-      <div class="passage-box">
-        <p>学校举行了一年一度的"爱心义卖会"。小明负责班级的摊位，他带了自己最心爱的漫画书来卖。一开始，生意冷清，小明感到有些失望。这时，他看到隔壁班的小华正努力地推销手工饼干，但<strong>无人问津</strong>。小明<strong>灵机一动</strong>，向老师提议："我们可以把漫画书和饼干捆绑销售，买饼干送漫画书借阅券！"老师赞同了他的想法。果然，摊位前很快排起了长龙。活动结束时，小明虽然没卖出漫画书，但看到班级筹得的善款最多，他心里比吃了蜜还甜。</p>
-      </div>
+    <h2 class="section-title">第一篇 · 乐赛学校</h2>
+    <div class="passage">
+      <p>从前，有一个年轻人很自私，他的心中只有他自己。当别人遇到困难时，他也不会去帮助他们。</p>
+      <p>有一次，他自己一个人去爬山。爬了一个小时，他走不动了，便在半路上休息。突然，一条蛇爬了出来，咬了他一口。他躺在路旁，整个人看起来很辛苦。他心想：我平时不肯帮助别人。这次应该也不会有人来帮我。我该怎么回家？</p>
+      <p>不知过了多久，年轻人醒来了。他发现自己没死。他睡在一间又破又旧的屋子里，一个老人捧着一碗菜汤站在他面前，对他说：「吃点东西吧，身体才好得快。以后爬山要小心哦！」</p>
+      <p>原来是老人发现年轻人倒在路旁。他叫了年轻人好多次，但是年轻人一直紧紧地闭着眼睛。老人担心年轻人会有危险，便把他背回家。到家后，老人还替他在受伤的地方上涂药。年轻人很感谢老人，就拿出一些钱给老人，想谢谢老人救了他的命。</p>
+      <p>老人拒绝收下年轻人的钱，并对年轻人说：「我不是为了钱而救你的。」但是，年轻人坚持要老人把钱收下，老人说：「如果你想向我表示感谢，就把这些钱送给更需要它的人，这就是给我最好的礼物了。」听了老人的话，年轻人点了点头。年轻人一想到以前的自己，脸就红了起来。</p>
+      <p>后来，年轻人把那些钱捐给了穷人。从此，年轻人积极帮助别人，做了很多好事。</p>
+    </div>
+    <div id="quiz-root-1"></div>
 
-      <div class="quiz-item">
-        <p class="q">Q1. 义卖会一开始，小明为什么感到失望？</p>
-        <ul>
-          <li>A. 因为他的漫画书破了。</li>
-          <li>B. 因为没有人来买他的漫画书。</li>
-          <li>C. 因为小华不让他帮忙。</li>
-          <li>D. 因为老师批评了他。</li>
-        </ul>
-      </div>
-      <div class="quiz-item">
-        <p class="q">Q2. 短文中"无人问津"的意思是什么？</p>
-        <ul>
-          <li>A. 没有人问问题。</li>
-          <li>B. 没有人来买东西。</li>
-          <li>C. 没有人喜欢小华。</li>
-          <li>D. 没有人知道在哪里。</li>
-        </ul>
-      </div>
-      <div class="quiz-item">
-        <p class="q">Q3. 小明提出了什么建议？</p>
-        <ul>
-          <li>A. 免费送漫画书。</li>
-          <li>B. 把漫画书和饼干一起卖。</li>
-          <li>C. 让小华帮他卖漫画书。</li>
-          <li>D. 去别的班级推销。</li>
-        </ul>
-      </div>
-      <div class="quiz-item">
-        <p class="q">Q4. 从文中可以看出小明是个怎样的学生？</p>
-        <ul>
-          <li>A. 自私自利，只关心自己。</li>
-          <li>B. 粗心大意，经常犯错。</li>
-          <li>C. 聪明机智，懂得合作。</li>
-          <li>D. 胆小怕事，不敢发言。</li>
-        </ul>
-      </div>
-      <div class="quiz-item">
-        <p class="q">Q5. 为什么小明最后"心里比吃了蜜还甜"？</p>
-        <ul>
-          <li>A. 因为他卖出了所有的漫画书。</li>
-          <li>B. 因为他吃到了小华的饼干。</li>
-          <li>C. 因为他体会到了帮助他人和团队合作的快乐。</li>
-          <li>D. 因为老师奖励了他一本新书。</li>
-        </ul>
-      </div>
-
-      <div class="answer-box">
-        <p class="title">💡 模拟卷答案解析</p>
-        <p><strong>Q1: B</strong>（细节题。原文"生意冷清"，说明没人买。A/C/D文中未提及。）</p>
-        <p><strong>Q2: B</strong>（词义题。"无人问津"指没有人来探问、尝试或购买。结合上下文小华在推销饼干，故选B。）</p>
-        <p><strong>Q3: B</strong>（细节题。原文"把漫画书和饼干捆绑销售"。）</p>
-        <p><strong>Q4: C</strong>（推断题。小明能想到"捆绑销售"的办法，并帮助小华，说明他聪明且懂得合作。）</p>
-        <p><strong>Q5: C</strong>（推断/主旨题。原文"没卖出漫画书"排除A；"比吃了蜜还甜"是比喻，指精神上的满足，即为班级筹得善款的成就感。）</p>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">🚀</span>考场高分口诀</h2>
-      <ol class="tip-list">
-        <li><strong>先读题目再读文</strong>，带着问题找答案</li>
-        <li><strong>关键词儿要圈出</strong>，回到原文对一对</li>
-        <li><strong>遇到成语别害怕</strong>，联系上下文代入它</li>
-        <li><strong>绝对词语要小心</strong>（所有、一定、必须），答非所问是陷阱</li>
-        <li><strong>时间控制在十分</strong>，检查一遍最安心</li>
-      </ol>
-    </section>
+    <h2 class="section-title">第二篇 · 恒力小学</h2>
+    <div class="passage">
+      <p>兴亮是一个可爱的男孩，但是他有一个坏习惯。</p>
+      <p>一次，兴亮经过小美的座位，发现她正一边写字，一边看另一份相同的作业。他转身向周围的同学说：「原来小美的作业都是抄别人的！」坐在小美旁边的丽文听见了，就立刻对兴亮说：「不知道就不要乱说！」</p>
+      <p>还有一次，在休息时，兴亮发现食堂的一个角落有一个小女孩在哭。站在小女孩面前的小美正怒气冲冲地瞪着小女孩。接着，兴亮跑去和朋友说：「平时看起来很安静的小美，原来喜欢欺负别人！」</p>
+      <p>这些话传开后，同学们都在小美的背后指指点点，并渐渐地远离她。这让小美感到很难过。丽文看到了这一切，决定告诉老师。</p>
+      <p>第二天，老师在班里问兴亮：「你知不知道你的行为对小美造成了多大的伤害？」兴亮却回答：「我亲眼看到小美在课堂里抄别人的功课，也看到她在休息时欺负一个小女孩。」</p>
+      <p>听到这儿，小美激动地说：「我那时是在抄丽文的笔记，因为我生病，好几天没来上学！而食堂的那个小女孩是我的妹妹，我很生气她在短短三天内弄丢了两个水瓶！你们什么都不知道就乱说话！」</p>
+      <p>老师这时也看向其他同学，问道：「你们现在知道到处乱说话的后果了吗？」同学们听了都红着脸，低下了头。兴亮也恍然大悟，后悔之前对小美做的事……</p>
+    </div>
+    <div id="quiz-root-2"></div>
 
     <footer>
-      <p>Made by Claire · <a href="https://claire-hjx.vercel.app/index.html">back to home</a></p>
+      <p><a href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a></p>
     </footer>
   </div>
+
+<script>
+const GROUP1 = [
+{ source:"乐赛学校 Q41", text:"为什么年轻人躺在路旁？",
+  options:["他忘了回家的路。","他不要别人帮忙。","他等着老人出现。","他被一条蛇咬伤。"], correct:4,
+  hint:"被蛇咬伤 (bèi shé yǎo shāng) — bitten by a snake",
+  explain:"他被一条蛇咬伤 (bèi shé yǎo shāng, bitten by a snake). The text clearly states: 「一条蛇爬了出来，咬了他一口」。He didn't get lost, wasn't waiting for anyone, and didn't refuse help." },
+
+{ source:"乐赛学校 Q42", text:"以下哪一个不是老人把年轻人背回家的原因？",
+  options:["老人在半路叫不醒年轻人。","老人发现年轻人倒在路旁。","老人想请年轻人喝他煮的菜汤。","老人担心年轻人在山上有危险。"], correct:3,
+  hint:"NOT a reason — the soup (菜汤, cài tāng) was offered after the rescue",
+  explain:"(3) is NOT a reason. The old man did not rescue him to invite him for soup (请他喝菜汤) — the soup was offered after the rescue. Real reasons: (1) couldn't wake him up, (2) found him on the roadside, (4) worried about danger." },
+
+{ source:"乐赛学校 Q43", text:"老人认为年轻人给他最好的礼物是什么？",
+  options:["年轻人把所有的钱都给老人。","年轻人紧闭着眼睛睁开了。","年轻人把钱捐给有需要的人。","年轻人懂得向老人表示感谢。"], correct:3,
+  hint:"捐给有需要的人 (juān gěi yǒu xū yào de rén) — donate to those in need",
+  explain:"The old man said: 「把这些钱送给更需要它的人」(give the money to people who need it more). So the best gift = donating money to those in need (捐给有需要的人, juān gěi yǒu xū yào de rén)." },
+
+{ source:"乐赛学校 Q44", text:"年轻人想到以前的自己，他感到______。",
+  options:["痛苦","惭愧","烦恼","后悔"], correct:2,
+  hint:"惭愧 (cán kuì) — ashamed",
+  explain:"惭愧 (cán kuì, ashamed) — his face turned red (脸就红了起来) thinking about his past selfishness. Not 痛苦 (tòng kǔ, painful), 烦恼 (fán nǎo, troubled), or 后悔 (hòu huǐ, regretful — close but 惭愧 is more precise for shame about one's character)." },
+
+{ source:"乐赛学校 Q45", text:"后来，年轻人变成一个怎样的人？",
+  options:["乐于助人","积极努力","坚持到底","注意安全"], correct:1,
+  hint:"乐于助人 (lè yú zhù rén) — happy to help others",
+  explain:"乐于助人 (lè yú zhù rén, happy to help others) — the text says he 「积极帮助别人，做了很多好事」(actively helped others and did many good deeds). Not 积极努力 (diligent), 坚持到底 (persistent), or 注意安全 (safety-conscious)." }
+];
+
+const GROUP2 = [
+{ source:"恒力小学 Q46", text:"兴亮的坏习惯是什么？",
+  options:["他常常在空闲时找同学们说话。","他喜欢躲在角落听别人说坏话。","他没弄清楚情况就到处乱说话。","他在老师的面前说朋友的坏话。"], correct:3,
+  hint:"没弄清楚情况就到处乱说话 (méi nòng qīng chǔ qíng kuàng) — spreading rumours without understanding the situation",
+  explain:"His bad habit is talking without understanding the situation (没弄清楚情况就到处乱说话, méi nòng qīng chǔ qíng kuàng jiù dào chù luàn shuō huà). He spread rumours about 小美 copying homework and bullying, without knowing the real reasons." },
+
+{ source:"恒力小学 Q47", text:"为什么小美会怒气冲冲地瞪着小女孩？因为",
+  options:["小女孩还没有向小美道歉。","小女孩又弄丢了她的水瓶。","小女孩在食堂的角落大哭。","小女孩在休息时去找小美。"], correct:2,
+  hint:"弄丢了水瓶 (nòng diū le shuǐ píng) — lost the water bottle",
+  explain:"小美 was angry because her sister lost her water bottle again (妹妹又弄丢了水瓶, mèi mei yòu nòng diū le shuǐ píng) — she lost 2 bottles in 3 days! Not because she didn't apologise, was crying, or came to find 小美." },
+
+{ source:"恒力小学 Q48", text:"为什么同学们都渐渐地远离小美？因为",
+  options:["小美抄了别的同学的作业。","小美爱欺负年纪小的同学。","同学们以为小美是坏学生。","同学们认为小美太安静了。"], correct:3,
+  hint:"以为小美是坏学生 (yǐ wéi xiǎo měi shì huài xué shēng) — mistakenly thought she was a bad student",
+  explain:"Classmates thought she was a bad student (以为小美是坏学生, yǐ wéi xiǎo měi shì huài xué shēng) due to rumours about copying and bullying. Not because she actually copied, bullied, or was too quiet." },
+
+{ source:"恒力小学 Q49", text:"文中「同学们都红着脸，低下了头」指的是什么？",
+  options:["大家很生气，因为兴亮害大家都被老师批评了。","大家很伤心，因为没有人能够回答老师的问题。","大家很惭愧，因为他们之前的行为伤害了小美。","大家很后悔，因为他们没有向老师报告整件事。"], correct:3,
+  hint:"惭愧 (cán kuì) — ashamed",
+  explain:"惭愧 (cán kuì, ashamed) — 「红着脸，低下了头」(red-faced, heads bowed) shows they felt guilty for hurting 小美 without knowing the truth. Not angry, sad, or regretful about not reporting." },
+
+{ source:"恒力小学 Q50", text:"丽文是一个怎样的人？",
+  options:["见义勇为","聪明能干","做事非常小心","懂得尊重别人"], correct:1,
+  hint:"见义勇为 (jiàn yì yǒng wéi) — courageous, standing up for justice",
+  explain:"见义勇为 (jiàn yì yǒng wéi, courageous/standing up for justice) — 丽文 bravely told the teacher about what was happening to 小美, standing up for her when no one else would. Not 聪明能干 (smart and capable), 做事非常小心 (very careful), or 懂得尊重别人 (respectful)." }
+];
+
+const progressLabel = document.getElementById('progress-label');
+const progressScore = document.getElementById('progress-score');
+const progressFill = document.getElementById('progress-fill');
+let answered = 0, firstTry = 0;
+const total = GROUP1.length + GROUP2.length;
+
+function updateProgress() {
+  progressLabel.textContent = `已作答 ${answered} / ${total}`;
+  progressScore.textContent = `一次答对 ${firstTry}`;
+  progressFill.style.width = (answered / total * 100) + '%';
+}
+
+function renderGroup(rootId, questions, startNum) {
+  const root = document.getElementById(rootId);
+  questions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+
+    const head = document.createElement('div');
+    head.className = 'q-head';
+    head.innerHTML = `<span class="q-num">Q${startNum + qi}.</span><span class="q-source">${q.source}</span>`;
+    card.appendChild(head);
+
+    const textEl = document.createElement('div');
+    textEl.className = 'q-text';
+    textEl.textContent = q.text;
+    card.appendChild(textEl);
+
+    const list = document.createElement('ul');
+    list.className = 'q-options';
+
+    const hintBox = document.createElement('div');
+    hintBox.className = 'hint-box';
+    hintBox.style.display = 'none';
+    hintBox.innerHTML = `💡 拼音提示： <strong>${q.hint}</strong>`;
+
+    const answerBox = document.createElement('div');
+    answerBox.className = 'answer-box';
+    answerBox.style.display = 'none';
+
+    let wrongAttempts = 0;
+    let resolved = false;
+
+    function revealFull(gotItRight) {
+      resolved = true;
+      card.classList.add('is-revealed');
+      if (gotItRight) card.classList.add('is-correct');
+      answerBox.innerHTML = `<strong class="ans-tag">✅ 答案 (${q.correct})</strong> — ${q.explain}`;
+      answerBox.style.display = 'block';
+      const btns = list.querySelectorAll('.opt');
+      btns.forEach((b, i) => {
+        b.disabled = true;
+        if (i + 1 === q.correct) b.classList.add('correct-answer');
+        else b.classList.add('dim');
+      });
+      answered++;
+      if (gotItRight && wrongAttempts === 0) firstTry++;
+      updateProgress();
+    }
+
+    q.options.forEach((optText, i) => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.className = 'opt';
+      btn.type = 'button';
+      btn.textContent = `(${i+1}) ${optText}`;
+      btn.addEventListener('click', () => {
+        if (resolved) return;
+        const chosen = i + 1;
+        if (chosen === q.correct) {
+          revealFull(true);
+        } else {
+          wrongAttempts++;
+          btn.classList.add('chosen-wrong');
+          btn.disabled = true;
+          if (wrongAttempts === 1) {
+            hintBox.style.display = 'block';
+          } else {
+            revealFull(false);
+          }
+        }
+      });
+      li.appendChild(btn);
+      list.appendChild(li);
+    });
+
+    card.appendChild(list);
+    card.appendChild(hintBox);
+    card.appendChild(answerBox);
+    root.appendChild(card);
+  });
+}
+
+renderGroup('quiz-root-1', GROUP1, 41);
+renderGroup('quiz-root-2', GROUP2, 46);
+updateProgress();
+</script>
 </body>
 </html>

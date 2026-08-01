@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="gate.js"></script>
-  <title>P5 CL 短文填空 Cheat Sheet · by Claire</title>
-  <meta name="description" content="P5 Chinese Language cloze passage (短文填空) cheat sheet — 4-step strategy, connectives, high-frequency vocab, by Claire.">
+  <title>P5 CL 短文填空高难度模拟卷 · by Claire</title>
+  <meta name="description" content="P5 Chinese Language mock paper — 2 cloze passages (10 blanks) from real 2025 P5 year-end exams, with a try-it-yourself reveal flow: wrong once unlocks pinyin, wrong twice unlocks the answer and explanation.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,7 @@
       --ink:#1c3a5e; --ink-soft:#4a6585; --blue:#2b6cb0; --blue-deep:#1f5290;
       --blue-bright:#4a90d9; --sky:#a8d8ea; --wash:#cfe8ff; --mist:#e3f2fd;
       --paper:#f4f9ff; --card:#ffffff; --lilac:#e6d9ff; --lilac-deep:#c9b3f0;
+      --green:#2f9e63; --green-bg:#e3f7ec; --red:#c0392b; --red-bg:#fdeceb;
       --shadow:0 10px 30px rgba(43,108,176,0.14); --shadow-sm:0 4px 14px rgba(43,108,176,0.12);
       --radius:22px;
     }
@@ -50,61 +51,72 @@
       font-size:.8rem; letter-spacing:.6px; text-transform:uppercase;
       padding:6px 14px; border-radius:999px; box-shadow:var(--shadow-sm); margin-bottom:16px;
     }
-    .hero h1 { font-size:clamp(1.6rem,5vw,2.5rem); color:var(--ink); line-height:1.25; }
-    .hero p { color:var(--ink-soft); font-weight:600; max-width:50ch; margin:14px auto 0; }
+    .hero h1 { font-size:clamp(1.5rem,4.6vw,2.3rem); color:var(--ink); line-height:1.3; }
+    .hero p { color:var(--ink-soft); font-weight:600; max-width:56ch; margin:14px auto 0; }
 
     .card {
       background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:26px 28px; margin-top:24px;
+      padding:22px 24px; margin-top:20px;
     }
-    .card h2 { color:var(--blue-deep); font-size:1.35rem; margin-bottom:6px; }
-    .card h2 .em { margin-right:8px; }
-    .card h3 { color:var(--ink); font-size:1.05rem; margin:18px 0 8px; }
-    .card p { margin:8px 0; }
-    .card ul, .card ol { margin:8px 0 8px 22px; }
-    .card li { margin:5px 0; }
+    .card h2 { color:var(--blue-deep); font-size:1.25rem; margin-bottom:6px; }
+    .card p { margin:6px 0; }
 
-    .overview-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-top:14px; }
-    .overview-grid .stat { background:var(--mist); border-radius:14px; padding:12px 14px; }
-    .overview-grid .stat .label { font-size:.75rem; font-weight:800; color:var(--blue); text-transform:uppercase; letter-spacing:.4px; }
-    .overview-grid .stat .value { font-weight:700; margin-top:3px; }
+    .essay-meta { background:var(--mist); border-radius:14px; padding:12px 16px; font-size:.9rem; }
+    .essay-meta p { margin:2px 0; }
+    .essay-meta .label { font-weight:800; color:var(--blue-deep); }
 
-    table { width:100%; border-collapse:collapse; margin:12px 0; }
-    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--mist); }
-    th { color:var(--blue-deep); font-size:.85rem; text-transform:uppercase; letter-spacing:.3px; }
+    .progress {
+      position:sticky; top:10px; z-index:5;
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      background:rgba(255,255,255,0.92); backdrop-filter:blur(6px);
+      border-radius:14px; padding:10px 16px; margin-top:16px; box-shadow:var(--shadow-sm);
+      font-size:.85rem; font-weight:700; color:var(--blue-deep);
+    }
+    .progress .bar { flex:1; height:8px; background:var(--wash); border-radius:99px; overflow:hidden; margin:0 4px; }
+    .progress .bar-fill { height:100%; background:var(--blue-bright); width:0%; transition:width .25s; }
 
-    .pill-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
-    .pill { background:var(--wash); color:var(--blue-deep); font-weight:700; font-size:.85rem; padding:6px 13px; border-radius:999px; }
-    .pill.lilac { background:var(--lilac); color:#5b3a9e; }
-    .pill.green { background:#d9f2e3; color:#1e7a4c; }
-    .pill.rose { background:#ffe0e6; color:#a03a55; }
+    .section-title { margin:26px 2px 4px; font-size:1.1rem; color:var(--blue-deep); }
 
-    .passage-box {
+    .passage {
       background:var(--paper); border:2px solid var(--wash); border-radius:18px;
-      padding:18px 20px; margin:14px 0;
+      padding:18px 20px; margin-top:14px; font-size:.96rem;
     }
-    .passage-box .ans { color:var(--blue-deep); font-weight:800; margin-top:10px; }
-    .passage-box .correct { color:#1e7a4c; font-weight:800; }
-
-    .example-box {
-      background:var(--mist); border-radius:16px;
-      padding:16px 18px; margin:12px 0;
+    .passage p { margin:10px 0; }
+    .blank-marker {
+      display:inline-block; background:var(--wash); color:var(--blue-deep); font-weight:800;
+      font-size:.8rem; padding:1px 8px; border-radius:999px; margin:0 2px;
     }
-    .example-box .a { color:var(--blue-deep); font-weight:800; }
 
-    .adapt-box {
-      background:linear-gradient(135deg,#fff7e0,#ffe9b8); border-radius:16px;
-      padding:14px 18px; margin-top:10px;
+    .q-card {
+      background:var(--card); border-radius:18px; box-shadow:var(--shadow-sm);
+      padding:18px 20px; margin-top:14px; border:2px solid transparent;
     }
-    .adapt-box .title { font-weight:800; color:#8a5a00; margin-bottom:6px; }
+    .q-card.is-correct { border-color:var(--green); }
+    .q-card.is-revealed:not(.is-correct) { border-color:var(--red); }
+    .q-head { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; margin-bottom:6px; }
+    .q-num { font-weight:800; color:var(--blue-deep); }
+    .q-source { font-size:.78rem; color:var(--ink-soft); background:var(--mist); padding:3px 9px; border-radius:999px; font-weight:700; }
+    .q-text { font-size:1rem; margin:6px 0 12px; }
 
-    .trap-box {
-      background:linear-gradient(135deg,#ffe3e8,#ffc9d4); border-radius:16px;
-      padding:14px 18px; margin-top:10px;
+    .q-options { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .q-options li { margin:0; }
+    .opt {
+      width:100%; text-align:left; font:inherit; font-size:.95rem; color:var(--ink);
+      background:var(--paper); border:2px solid var(--wash); border-radius:12px;
+      padding:9px 14px; cursor:pointer; transition:background .12s, border-color .12s, transform .08s;
     }
-    .trap-box .title { font-weight:800; color:#9e2a44; margin-bottom:6px; }
+    .opt:hover:not(:disabled) { border-color:var(--blue-bright); transform:translateX(2px); }
+    .opt:disabled { cursor:default; }
+    .opt.chosen-wrong { background:var(--red-bg); border-color:var(--red); color:var(--red); }
+    .opt.correct-answer { background:var(--green-bg); border-color:var(--green); color:var(--green); font-weight:800; }
+    .opt.dim { opacity:.55; }
 
-    .tip-list li::marker { color:var(--blue); font-weight:800; }
+    .hint-box, .answer-box {
+      border-radius:12px; padding:10px 16px; margin-top:12px; font-size:.88rem;
+    }
+    .hint-box { background:var(--lilac); color:#4a3878; }
+    .answer-box { background:var(--green-bg); color:#1f5c3a; }
+    .answer-box strong.ans-tag { color:var(--green); }
 
     footer { text-align:center; color:var(--ink-soft); font-weight:600; margin-top:40px; }
     footer a { font-weight:800; }
@@ -117,187 +129,196 @@
     </div>
 
     <header class="hero">
-      <span class="eyebrow">🀄 Chinese Cheat Sheet</span>
-      <h1>P5 短文填空<br>Cloze Passage</h1>
-      <p>2025 WA3 &amp; EOY revision — the 4-step strategy, connectives, high-frequency vocab, and the traps schools love to set.</p>
+      <span class="eyebrow">🀄 Chinese Mock Paper · 短文填空</span>
+      <h1>P5 CL 短文填空高难度模拟卷</h1>
+      <p>2 real past-year cloze passages (10 blanks total) from 2025 P5 year-end exams. Try each blank — get it wrong once and a pinyin hint unlocks; get it wrong twice (or right first try) and the full answer + explanation unlocks.</p>
     </header>
 
     <section class="card">
-      <h2><span class="em">📋</span>Exam Format</h2>
-      <table>
-        <tr><th>Section</th><th>Questions</th><th>Marks</th><th>Time</th></tr>
-        <tr><td>短文填空</td><td>5</td><td>10</td><td>10–12 分钟</td></tr>
-      </table>
-      <p>题型：<strong>多项选择题</strong>，每题2分，4个选项选1个。</p>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">🎯</span>2025年真题示例（Ai Tong SA2 2025）</h2>
-      <h3>真题回顾：行善日</h3>
-      <div class="passage-box">
-        <p>如果你的同学在踢球时不小心摔伤了腿，需要坐轮椅，你会怎么做呢？有所学校的一个学生受伤后，他的同学有的主动帮他推轮椅，有的同学提早到学校等他，个个都 <strong>Q16</strong>（1异口同声 2七嘴八舌 3<span class="correct">争先恐后 ✓</span> 4喜出望外）地想帮忙，让他非常感动。</p>
-        <p>为了 <strong>Q17</strong>（1<span class="correct">鼓励 ✓</span> 2配合 3谈论 4联系）更多同学做善事，这所学校表扬了这位同学，并举办了"行善日"活动。学校通过歌曲、游戏和有趣的活动，让同学们一起学习如何做善事。</p>
-        <p>问到对"行善日"的感受时，小乐兴奋地说："我觉得'行善日'让我们更 <strong>Q18</strong>（1丰富 2<span class="correct">了解 ✓</span> 3拥有 4探索）朋友的需要，也学会如何帮助别人！"他的同学小同点点头，说："我同意，如果大家懂得互相尊重和照顾，也就不会发生 <strong>Q19</strong>（1打败 2灭绝 3怀疑 4<span class="correct">欺负 ✓</span>）同学的事情。这样，学习环境会变得更美好。"</p>
-        <p>他们的老师听了，微笑着说道："其实，行善不需要做非常伟大的事情，可以从小事开始。同学们 <strong>Q20</strong>（1<span class="correct">积极 ✓</span> 2感恩 3珍惜 4制造）行善的同时，也能慢慢培养善良的品德。"</p>
-        <p class="ans">答案：Q16-3, Q17-1, Q18-2, Q19-4, Q20-1</p>
+      <div class="essay-meta">
+        <p><span class="label">说明：</span>根据短文的内容和上下文的意思，从括号中选出适当的词语。</p>
+        <p><span class="label">题数：</span>2 篇，共 10 题，每题 2 分，共 20 分</p>
       </div>
     </section>
 
-    <section class="card">
-      <h2><span class="em">🔑</span>答题四步法</h2>
-      <h3>第一步：通读全文（2分钟）</h3>
-      <ul>
-        <li>快速浏览整篇短文，了解<strong>主题</strong>和<strong>大意</strong></li>
-        <li>不要急着填空，先理解上下文</li>
-      </ul>
-      <h3>第二步：逐题分析（5分钟）</h3>
-      <ul>
-        <li>仔细阅读每个空格<strong>前后</strong>的句子</li>
-        <li>注意<strong>逻辑关系</strong>（因果、转折、递进、并列）</li>
-        <li>判断空格需要什么<strong>词性</strong>（动词/形容词/名词/副词）</li>
-      </ul>
-      <h3>第三步：排除法（3分钟）</h3>
-      <ul>
-        <li>先排除<strong>明显错误</strong>的选项</li>
-        <li>注意<strong>词语搭配</strong>是否恰当</li>
-        <li>注意<strong>感情色彩</strong>（正面/负面）</li>
-      </ul>
-      <h3>第四步：检查验证（2分钟）</h3>
-      <ul>
-        <li>把答案代入原文，检查是否<strong>通顺</strong></li>
-        <li>检查前后文是否<strong>连贯</strong></li>
-      </ul>
-    </section>
+    <div class="progress">
+      <span id="progress-label">已作答 0 / 10</span>
+      <div class="bar"><div class="bar-fill" id="progress-fill"></div></div>
+      <span id="progress-score">一次答对 0</span>
+    </div>
 
-    <section class="card">
-      <h2><span class="em">📚</span>2025年高频考点词汇</h2>
+    <h2 class="section-title">第一篇 · 南华小学</h2>
+    <div class="passage">
+      <p>五年级有丰富的活动，如：露营、学习之旅、观看国庆预演等。最让我难忘的是三天两夜的露营活动。那是我第一次离开家人，<span class="blank-marker">Q31</span> 参加那么久的活动。虽然没有美味的食物，也没有舒服的床，但那一次的露营经历却让我更加 <span class="blank-marker">Q32</span> 和同学在一起的时光。</p>
+      <p>国庆前的一个周六傍晚，五年级学生在老师们的带领下，去大草场观看了国庆预演。跳伞表演、海陆空三军表演、大型歌舞节目、<span class="blank-marker">Q33</span> 的烟花……当课本上写的场景真实地出现我面前时，我为新加坡感到 <span class="blank-marker">Q34</span>。</p>
+      <p>五年级 <span class="blank-marker">Q35</span> 就要过去了，这一年非常充实，父母都夸我长大了，更懂事了。</p>
+    </div>
+    <div id="quiz-root-1"></div>
 
-      <h3>一、关联词（重中之重！占8分）</h3>
-      <table>
-        <tr><th>关联词类型</th><th>常用词语</th><th>例句</th></tr>
-        <tr><td>因果关系</td><td>因为...所以...、既然...就...、因此</td><td><strong>因为</strong>他努力学习，<strong>所以</strong>成绩进步了。</td></tr>
-        <tr><td>转折关系</td><td>虽然...但是...、然而、却</td><td><strong>虽然</strong>天气很冷，<strong>但是</strong>大家仍然坚持锻炼。</td></tr>
-        <tr><td>递进关系</td><td>不仅...还/而且...、甚至</td><td>他<strong>不仅</strong>完成了作业，<strong>还</strong>帮助了同学。</td></tr>
-        <tr><td>条件关系</td><td>只要...就...、只有...才...、无论...都...</td><td><strong>只要</strong>努力，<strong>就</strong>能成功。</td></tr>
-        <tr><td>假设关系</td><td>如果...就...、即使...也...</td><td><strong>如果</strong>明天下雨，我们<strong>就</strong>取消活动。</td></tr>
-        <tr><td>并列关系</td><td>一边...一边...、既...又...</td><td>她<strong>一边</strong>听音乐，<strong>一边</strong>做作业。</td></tr>
-      </table>
-
-      <h3>二、高频动词（必背）</h3>
-      <table>
-        <tr><th>词语</th><th>拼音</th><th>意思</th><th>常见搭配</th></tr>
-        <tr><td>鼓励</td><td>gǔ lì</td><td>encourage</td><td>鼓励学生、鼓励参与</td></tr>
-        <tr><td>了解</td><td>liǎo jiě</td><td>understand</td><td>了解情况、了解需要</td></tr>
-        <tr><td>欺负</td><td>qī fu</td><td>bully</td><td>欺负同学、被欺负</td></tr>
-        <tr><td>积极</td><td>jī jí</td><td>active/positive</td><td>积极参与、积极态度</td></tr>
-        <tr><td>争先恐后</td><td>zhēng xiān kǒng hòu</td><td>compete to be first</td><td>争先恐后地帮忙</td></tr>
-        <tr><td>异口同声</td><td>yì kǒu tóng shēng</td><td>in unison</td><td>异口同声地说</td></tr>
-        <tr><td>七嘴八舌</td><td>qī zuǐ bā shé</td><td>talk at the same time</td><td>七嘴八舌地讨论</td></tr>
-        <tr><td>喜出望外</td><td>xǐ chū wàng wài</td><td>overjoyed</td><td>感到喜出望外</td></tr>
-        <tr><td>配合</td><td>pèi hé</td><td>cooperate</td><td>相互配合、配合工作</td></tr>
-        <tr><td>探索</td><td>tàn suǒ</td><td>explore</td><td>探索奥秘、探索知识</td></tr>
-      </table>
-
-      <h3>三、高频形容词/副词</h3>
-      <table>
-        <tr><th>词语</th><th>拼音</th><th>意思</th><th>用法</th></tr>
-        <tr><td>丰富</td><td>fēng fù</td><td>rich/abundant</td><td>内容丰富、经验丰富</td></tr>
-        <tr><td>珍惜</td><td>zhēn xī</td><td>cherish</td><td>珍惜时间、珍惜友情</td></tr>
-        <tr><td>感恩</td><td>gǎn ēn</td><td>grateful</td><td>感恩的心、懂得感恩</td></tr>
-        <tr><td>制造</td><td>zhì zào</td><td>manufacture</td><td>制造麻烦、制造机会</td></tr>
-        <tr><td>打败</td><td>dǎ bài</td><td>defeat</td><td>打败敌人、被打败</td></tr>
-        <tr><td>灭绝</td><td>miè jué</td><td>extinct</td><td>恐龙灭绝</td></tr>
-        <tr><td>怀疑</td><td>huái yí</td><td>doubt</td><td>怀疑真相、令人怀疑</td></tr>
-      </table>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">🎯</span>2025年常考主题</h2>
-      <h3>主题1：校园生活与品德教育</h3>
-      <p class="pill-row-label">帮助同学、行善日、爱心活动、互相尊重、不欺负同学、团结合作、齐心协力</p>
-      <h3>主题2：亲情与感恩</h3>
-      <p>孝顺父母、体谅父母、感恩之心、回报父母、家庭温暖、亲情可贵</p>
-      <h3>主题3：成长与学习</h3>
-      <p>努力学习、取得进步、面对困难、不放弃、从错误中学习、吸取教训</p>
-      <h3>主题4：友情与互助</h3>
-      <p>朋友互助、珍惜友情、同甘共苦、患难与共、互相关心、互相照顾</p>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">⚡</span>答题技巧与陷阱</h2>
-      <h3>✅ 正确技巧</h3>
-      <div class="adapt-box">
-        <p class="title">1. 注意词语搭配</p>
-        <p>"鼓励" + 人/行为（鼓励同学、鼓励参与）· "了解" + 情况/需要（了解情况、了解需要）· "积极" + 行为（积极参与、积极态度）</p>
-      </div>
-      <div class="adapt-box">
-        <p class="title">2. 注意感情色彩</p>
-        <div class="pill-row">
-          <span class="pill green">正面：鼓励</span><span class="pill green">积极</span><span class="pill green">珍惜</span><span class="pill green">感恩</span>
-          <span class="pill rose">负面：欺负</span><span class="pill rose">打败</span><span class="pill rose">灭绝</span><span class="pill rose">怀疑</span>
-        </div>
-      </div>
-      <div class="adapt-box">
-        <p class="title">3. 注意逻辑关系</p>
-        <p>因果关系：因为...所以... · 转折关系：虽然...但是... · 递进关系：不仅...还...</p>
-      </div>
-
-      <h3>❌ 常见陷阱</h3>
-      <div class="trap-box">
-        <p class="title">1. 近义词混淆</p>
-        <p>"了解" vs "丰富"：了解需要（✓） vs 丰富需要（✗）· "鼓励" vs "配合"：鼓励同学（✓） vs 配合同学（✗，意思不同）</p>
-      </div>
-      <div class="trap-box">
-        <p class="title">2. 词性错误</p>
-        <p>需要动词的地方填了形容词 · 需要形容词的地方填了名词</p>
-      </div>
-      <div class="trap-box">
-        <p class="title">3. 语境不符</p>
-        <p>正面语境填了负面词语 · 负面语境填了正面词语</p>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">📝</span>模拟练习题</h2>
-      <h3>练习1：校园活动</h3>
-      <div class="passage-box">
-        <p>学校举办了一年一度的"爱心义卖会"，同学们都____（1异口同声 2争先恐后 3七嘴八舌 4喜出望外）地参与。为了____（1鼓励 2配合 3谈论 4联系）更多家长参加，学校还发出了邀请函。活动当天，大家____（1积极 2感恩 3珍惜 4制造）地布置摊位，卖出许多物品。所得款项将____（1了解 2探索 3用于 4制造）帮助贫困学生。</p>
-        <p class="ans">答案：1-2, 2-1, 3-1, 4-3</p>
-      </div>
-      <h3>练习2：品德教育</h3>
-      <div class="passage-box">
-        <p>小明看到同学被高年级学生____（1鼓励 2欺负 3配合 4表扬），他毫不犹豫地站出来制止。他的行为得到了老师的____（1怀疑 2灭绝 3表扬 4打败），成为同学们学习的榜样。老师告诉全班同学，我们要____（1积极 2勇敢 3珍惜 4丰富）面对不公平的事情，不能袖手旁观。</p>
-        <p class="ans">答案：1-2, 2-3, 3-2</p>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">📊</span>时间分配建议（1小时40分钟试卷）</h2>
-      <div class="overview-grid">
-        <div class="stat"><div class="label">语文应用A组</div><div class="value">10分钟</div></div>
-        <div class="stat"><div class="label">语文应用B组</div><div class="value">10分钟</div></div>
-        <div class="stat"><div class="label">短文填空</div><div class="value">10–12分钟</div></div>
-        <div class="stat"><div class="label">阅读理解一</div><div class="value">10分钟</div></div>
-        <div class="stat"><div class="label">完成对话</div><div class="value">10分钟</div></div>
-        <div class="stat"><div class="label">阅读理解二</div><div class="value">35分钟</div></div>
-        <div class="stat"><div class="label">检查</div><div class="value">10分钟</div></div>
-      </div>
-    </section>
-
-    <section class="card">
-      <h2><span class="em">🎓</span>考前冲刺清单</h2>
-      <ul>
-        <li>✅ 背诵所有关联词（因为...所以...、虽然...但是...、不仅...还...）</li>
-        <li>✅ 熟记20个高频动词及其搭配</li>
-        <li>✅ 练习5篇短文填空（计时完成）</li>
-        <li>✅ 复习课本"词语串串串"和"句子变变变"栏目</li>
-        <li>✅ 整理错题本，分析错误原因</li>
-      </ul>
-    </section>
+    <h2 class="section-title">第二篇 · 南洋小学</h2>
+    <div class="passage">
+      <p>丽文六年级毕业后，考进了体育学校。这是她第一次离开父母，和同学们住在一起。离开家之前，为了 <span class="blank-marker">Q36</span> 她和同学们争吵，妈妈不断地提醒她要多为别人着想，但丽文总是回答：「别管我，我已经长大了，知道怎么做！」</p>
+      <p>上学后，她认识了很多新朋友，大家一起玩，一起训练，生活过得既 <span class="blank-marker">Q37</span> 又开心。渐渐地，同学发现丽文时常不顾他人的感受，对她这种自私的行为很不满，便纷纷与她 <span class="blank-marker">Q38</span> 距离。</p>
+      <p>丽文这才开始思考妈妈之前说过的话，她 <span class="blank-marker">Q39</span> 明白妈妈是为了她好。丽文感到很惭愧，知道自己以前没有真正理解妈妈的心意。想到这里，她的视线开始 <span class="blank-marker">Q40</span> 了，眼泪不由自主地流了下来。</p>
+    </div>
+    <div id="quiz-root-2"></div>
 
     <footer>
-      <p>Made by Claire · <a href="https://claire-hjx.vercel.app/index.html">back to home</a></p>
+      <p><a href="https://claire-hjx.vercel.app/index.html">← Back to Claire's site</a></p>
     </footer>
   </div>
+
+<script>
+const GROUP1 = [
+{ source:"南华小学 Q31", text:"那是我第一次离开家人，___参加那么久的活动。",
+  options:["独自","顺利","坚持","配合"], correct:1,
+  hint:"独自 (dú zì) — alone/by oneself",
+  explain:"独自 (dú zì, alone/by oneself) — it was her first time away from family for a 3-day camp, so she had to participate alone. Not 顺利 (shùn lì, smoothly), 坚持 (jiān chí, persist), or 配合 (pèi hé, cooperate)." },
+
+{ source:"南华小学 Q32", text:"但那一次的露营经历却让我更加___和同学在一起的时光。",
+  options:["满意","习惯","珍惜","盼望"], correct:3,
+  hint:"珍惜 (zhēn xī) — to cherish/treasure",
+  explain:"珍惜 (zhēn xī, to cherish/treasure) — being away made her appreciate time with classmates more. Not 满意 (mǎn yì, satisfied), 习惯 (xí guàn, get used to), or 盼望 (pàn wàng, look forward to)." },
+
+{ source:"南华小学 Q33", text:"跳伞表演、海陆空三军表演、大型歌舞节目、___的烟花……",
+  options:["精彩万分","五彩缤纷","兴高采烈","整整齐齐"], correct:1,
+  hint:"精彩万分 (jīng cǎi wàn fēn) — extremely wonderful",
+  explain:"精彩万分 (jīng cǎi wàn fēn, extremely wonderful) describes the spectacular National Day fireworks. Not 五彩缤纷 (wǔ cǎi bīn fēn, colourful — for objects), 兴高采烈 (xìng gāo cǎi liè, in high spirits — for people's mood), or 整整齐齐 (zhěng zhěng qí qí, neat and tidy)." },
+
+{ source:"南华小学 Q34", text:"当课本上写的场景真实地出现我面前时，我为新加坡感到___。",
+  options:["幸福","激动","惊奇","骄傲"], correct:4,
+  hint:"骄傲 (jiāo ào) — proud",
+  explain:"骄傲 (jiāo ào, proud) — seeing scenes from textbooks come alive made her feel proud of Singapore. Not 幸福 (xìng fú, happy/blessed), 激动 (jī dòng, excited), or 惊奇 (jīng qí, surprised)." },
+
+{ source:"南华小学 Q35", text:"五年级___就要过去了，这一年非常充实。",
+  options:["一转身","一回头","一抬手","一眨眼"], correct:4,
+  hint:"一眨眼 (yì zhǎ yǎn) — in the blink of an eye",
+  explain:"一眨眼 (yì zhǎ yǎn, in the blink of an eye) — the year passed quickly. Not 一转身 (yì zhuǎn shēn, turning around), 一回头 (yì huí tóu, looking back), or 一抬手 (yì tái shǒu, raising a hand)." }
+];
+
+const GROUP2 = [
+{ source:"南洋小学 Q36", text:"为了___她和同学们争吵，妈妈不断地提醒她要多为别人着想。",
+  options:["禁止","停止","阻止","防止"], correct:4,
+  hint:"防止 (fáng zhǐ) — to prevent",
+  explain:"防止 (fáng zhǐ, to prevent) — mom wanted to prevent arguments before they happened. Not 禁止 (jìn zhǐ, to forbid/ban), 停止 (tíng zhǐ, to stop something ongoing), or 阻止 (zǔ zhǐ, to stop someone from doing something)." },
+
+{ source:"南洋小学 Q37", text:"大家一起玩，一起训练，生活过得既___又开心。",
+  options:["充足","充实","充分","充满"], correct:2,
+  hint:"充实 (chōng shí) — fulfilling",
+  explain:"充实 (chōng shí, fulfilling) — her life was full and meaningful with friends and training. Not 充足 (chōng zú, sufficient — for quantities), 充分 (chōng fèn, adequate — for preparation), or 充满 (chōng mǎn, filled with — needs an object after)." },
+
+{ source:"南洋小学 Q38", text:"同学对她这种自私的行为很不满，便纷纷与她___距离。",
+  options:["保持","避开","减少","制造"], correct:2,
+  hint:"避开 (bì kāi) — to avoid/keep away from",
+  explain:"避开 (bì kāi, to avoid/keep away from) — classmates kept their distance from her selfish behaviour. Not 保持 (bǎo chí, maintain), 减少 (jiǎn shǎo, reduce), or 制造 (zhì zào, create)." },
+
+{ source:"南洋小学 Q39", text:"丽文这才开始思考妈妈之前说过的话，她___明白妈妈是为了她好。",
+  options:["曾经","终于","此后","永远"], correct:2,
+  hint:"终于 (zhōng yú) — finally/at last",
+  explain:"终于 (zhōng yú, finally/at last) — she finally understood mom's words after experiencing the consequences. Not 曾经 (céng jīng, once/used to), 此后 (cǐ hòu, since then), or 永远 (yǒng yuǎn, forever)." },
+
+{ source:"南洋小学 Q40", text:"想到这里，她的视线开始___了，眼泪不由自主地流了下来。",
+  options:["昏暗","模糊","劳累","下降"], correct:2,
+  hint:"模糊 (mó hu) — blurry",
+  explain:"模糊 (mó hu, blurry) — her vision became blurry from tears. Not 昏暗 (hūn àn, dim — for lighting), 劳累 (láo lèi, tired), or 下降 (xià jiàng, decline)." }
+];
+
+const progressLabel = document.getElementById('progress-label');
+const progressScore = document.getElementById('progress-score');
+const progressFill = document.getElementById('progress-fill');
+let answered = 0, firstTry = 0;
+const total = GROUP1.length + GROUP2.length;
+
+function updateProgress() {
+  progressLabel.textContent = `已作答 ${answered} / ${total}`;
+  progressScore.textContent = `一次答对 ${firstTry}`;
+  progressFill.style.width = (answered / total * 100) + '%';
+}
+
+function renderGroup(rootId, questions, startNum) {
+  const root = document.getElementById(rootId);
+  questions.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+
+    const head = document.createElement('div');
+    head.className = 'q-head';
+    head.innerHTML = `<span class="q-num">Q${startNum + qi}.</span><span class="q-source">${q.source}</span>`;
+    card.appendChild(head);
+
+    const textEl = document.createElement('div');
+    textEl.className = 'q-text';
+    textEl.textContent = q.text;
+    card.appendChild(textEl);
+
+    const list = document.createElement('ul');
+    list.className = 'q-options';
+
+    const hintBox = document.createElement('div');
+    hintBox.className = 'hint-box';
+    hintBox.style.display = 'none';
+    hintBox.innerHTML = `💡 拼音提示： <strong>${q.hint}</strong>`;
+
+    const answerBox = document.createElement('div');
+    answerBox.className = 'answer-box';
+    answerBox.style.display = 'none';
+
+    let wrongAttempts = 0;
+    let resolved = false;
+
+    function revealFull(gotItRight) {
+      resolved = true;
+      card.classList.add('is-revealed');
+      if (gotItRight) card.classList.add('is-correct');
+      answerBox.innerHTML = `<strong class="ans-tag">✅ 答案 (${q.correct})</strong> — ${q.explain}`;
+      answerBox.style.display = 'block';
+      const btns = list.querySelectorAll('.opt');
+      btns.forEach((b, i) => {
+        b.disabled = true;
+        if (i + 1 === q.correct) b.classList.add('correct-answer');
+        else b.classList.add('dim');
+      });
+      answered++;
+      if (gotItRight && wrongAttempts === 0) firstTry++;
+      updateProgress();
+    }
+
+    q.options.forEach((optText, i) => {
+      const li = document.createElement('li');
+      const btn = document.createElement('button');
+      btn.className = 'opt';
+      btn.type = 'button';
+      btn.textContent = `(${i+1}) ${optText}`;
+      btn.addEventListener('click', () => {
+        if (resolved) return;
+        const chosen = i + 1;
+        if (chosen === q.correct) {
+          revealFull(true);
+        } else {
+          wrongAttempts++;
+          btn.classList.add('chosen-wrong');
+          btn.disabled = true;
+          if (wrongAttempts === 1) {
+            hintBox.style.display = 'block';
+          } else {
+            revealFull(false);
+          }
+        }
+      });
+      li.appendChild(btn);
+      list.appendChild(li);
+    });
+
+    card.appendChild(list);
+    card.appendChild(hintBox);
+    card.appendChild(answerBox);
+    root.appendChild(card);
+  });
+}
+
+renderGroup('quiz-root-1', GROUP1, 31);
+renderGroup('quiz-root-2', GROUP2, 36);
+updateProgress();
+</script>
 </body>
 </html>
