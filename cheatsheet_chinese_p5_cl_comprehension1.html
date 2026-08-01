@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="gate.js"></script>
   <title>P5 CL 阅读理解一高难度模拟卷 · by Claire</title>
-  <meta name="description" content="P5 Chinese Language mock paper — 2 reading comprehension passages (10 MCQs) from real 2025 P5 year-end exams, with a try-it-yourself reveal flow: wrong once unlocks pinyin, wrong twice unlocks the answer and explanation.">
+  <meta name="description" content="P5 Chinese Language mock paper — 2 reading comprehension passages (10 MCQs) from real 2025 P5 year-end exams, with a try-it-yourself reveal flow: wrong twice (or right first try) unlocks the answer and explanation.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,7 +127,7 @@
     <header class="hero">
       <span class="eyebrow">🀄 Chinese Mock Paper · 阅读理解一</span>
       <h1>P5 CL 阅读理解一高难度模拟卷</h1>
-      <p>2 real past-year comprehension passages (10 MCQs total) from 2025 P5 year-end exams. Try each one — get it wrong once and a pinyin hint unlocks; get it wrong twice (or right first try) and the full answer + explanation unlocks.</p>
+      <p>2 real past-year comprehension passages (10 MCQs total) from 2025 P5 year-end exams. Try each one — get it wrong twice (or right first try) and the full answer + explanation unlocks.</p>
     </header>
 
     <section class="card">
@@ -175,54 +175,44 @@
 const GROUP1 = [
 { source:"乐赛学校 Q41", text:"为什么年轻人躺在路旁？",
   options:["他忘了回家的路。","他不要别人帮忙。","他等着老人出现。","他被一条蛇咬伤。"], correct:4,
-  hint:"被蛇咬伤 (bèi shé yǎo shāng) — bitten by a snake",
   explain:"他被一条蛇咬伤 (bèi shé yǎo shāng, bitten by a snake). The text clearly states: 「一条蛇爬了出来，咬了他一口」。He didn't get lost, wasn't waiting for anyone, and didn't refuse help." },
 
 { source:"乐赛学校 Q42", text:"以下哪一个不是老人把年轻人背回家的原因？",
   options:["老人在半路叫不醒年轻人。","老人发现年轻人倒在路旁。","老人想请年轻人喝他煮的菜汤。","老人担心年轻人在山上有危险。"], correct:3,
-  hint:"NOT a reason — the soup (菜汤, cài tāng) was offered after the rescue",
   explain:"(3) is NOT a reason. The old man did not rescue him to invite him for soup (请他喝菜汤) — the soup was offered after the rescue. Real reasons: (1) couldn't wake him up, (2) found him on the roadside, (4) worried about danger." },
 
 { source:"乐赛学校 Q43", text:"老人认为年轻人给他最好的礼物是什么？",
   options:["年轻人把所有的钱都给老人。","年轻人紧闭着眼睛睁开了。","年轻人把钱捐给有需要的人。","年轻人懂得向老人表示感谢。"], correct:3,
-  hint:"捐给有需要的人 (juān gěi yǒu xū yào de rén) — donate to those in need",
   explain:"The old man said: 「把这些钱送给更需要它的人」(give the money to people who need it more). So the best gift = donating money to those in need (捐给有需要的人, juān gěi yǒu xū yào de rén)." },
 
 { source:"乐赛学校 Q44", text:"年轻人想到以前的自己，他感到______。",
   options:["痛苦","惭愧","烦恼","后悔"], correct:2,
-  hint:"惭愧 (cán kuì) — ashamed",
   explain:"惭愧 (cán kuì, ashamed) — his face turned red (脸就红了起来) thinking about his past selfishness. Not 痛苦 (tòng kǔ, painful), 烦恼 (fán nǎo, troubled), or 后悔 (hòu huǐ, regretful — close but 惭愧 is more precise for shame about one's character)." },
 
 { source:"乐赛学校 Q45", text:"后来，年轻人变成一个怎样的人？",
   options:["乐于助人","积极努力","坚持到底","注意安全"], correct:1,
-  hint:"乐于助人 (lè yú zhù rén) — happy to help others",
   explain:"乐于助人 (lè yú zhù rén, happy to help others) — the text says he 「积极帮助别人，做了很多好事」(actively helped others and did many good deeds). Not 积极努力 (diligent), 坚持到底 (persistent), or 注意安全 (safety-conscious)." }
 ];
 
 const GROUP2 = [
 { source:"恒力小学 Q46", text:"兴亮的坏习惯是什么？",
   options:["他常常在空闲时找同学们说话。","他喜欢躲在角落听别人说坏话。","他没弄清楚情况就到处乱说话。","他在老师的面前说朋友的坏话。"], correct:3,
-  hint:"没弄清楚情况就到处乱说话 (méi nòng qīng chǔ qíng kuàng) — spreading rumours without understanding the situation",
   explain:"His bad habit is talking without understanding the situation (没弄清楚情况就到处乱说话, méi nòng qīng chǔ qíng kuàng jiù dào chù luàn shuō huà). He spread rumours about 小美 copying homework and bullying, without knowing the real reasons." },
 
 { source:"恒力小学 Q47", text:"为什么小美会怒气冲冲地瞪着小女孩？因为",
   options:["小女孩还没有向小美道歉。","小女孩又弄丢了她的水瓶。","小女孩在食堂的角落大哭。","小女孩在休息时去找小美。"], correct:2,
-  hint:"弄丢了水瓶 (nòng diū le shuǐ píng) — lost the water bottle",
   explain:"小美 was angry because her sister lost her water bottle again (妹妹又弄丢了水瓶, mèi mei yòu nòng diū le shuǐ píng) — she lost 2 bottles in 3 days! Not because she didn't apologise, was crying, or came to find 小美." },
 
 { source:"恒力小学 Q48", text:"为什么同学们都渐渐地远离小美？因为",
   options:["小美抄了别的同学的作业。","小美爱欺负年纪小的同学。","同学们以为小美是坏学生。","同学们认为小美太安静了。"], correct:3,
-  hint:"以为小美是坏学生 (yǐ wéi xiǎo měi shì huài xué shēng) — mistakenly thought she was a bad student",
   explain:"Classmates thought she was a bad student (以为小美是坏学生, yǐ wéi xiǎo měi shì huài xué shēng) due to rumours about copying and bullying. Not because she actually copied, bullied, or was too quiet." },
 
 { source:"恒力小学 Q49", text:"文中「同学们都红着脸，低下了头」指的是什么？",
   options:["大家很生气，因为兴亮害大家都被老师批评了。","大家很伤心，因为没有人能够回答老师的问题。","大家很惭愧，因为他们之前的行为伤害了小美。","大家很后悔，因为他们没有向老师报告整件事。"], correct:3,
-  hint:"惭愧 (cán kuì) — ashamed",
   explain:"惭愧 (cán kuì, ashamed) — 「红着脸，低下了头」(red-faced, heads bowed) shows they felt guilty for hurting 小美 without knowing the truth. Not angry, sad, or regretful about not reporting." },
 
 { source:"恒力小学 Q50", text:"丽文是一个怎样的人？",
   options:["见义勇为","聪明能干","做事非常小心","懂得尊重别人"], correct:1,
-  hint:"见义勇为 (jiàn yì yǒng wéi) — courageous, standing up for justice",
   explain:"见义勇为 (jiàn yì yǒng wéi, courageous/standing up for justice) — 丽文 bravely told the teacher about what was happening to 小美, standing up for her when no one else would. Not 聪明能干 (smart and capable), 做事非常小心 (very careful), or 懂得尊重别人 (respectful)." }
 ];
 
@@ -260,7 +250,9 @@ function renderGroup(rootId, questions, startNum) {
     const hintBox = document.createElement('div');
     hintBox.className = 'hint-box';
     hintBox.style.display = 'none';
-    hintBox.innerHTML = `💡 拼音提示： <strong>${q.hint}</strong>`;
+    hintBox.innerHTML = q.hint
+      ? `💡 拼音提示： <strong>${q.hint}</strong>`
+      : `🤔 再想想，还有一次机会！`;
 
     const answerBox = document.createElement('div');
     answerBox.className = 'answer-box';

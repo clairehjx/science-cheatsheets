@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="gate.js"></script>
   <title>P5 CL 短文填空高难度模拟卷 · by Claire</title>
-  <meta name="description" content="P5 Chinese Language mock paper — 2 cloze passages (10 blanks) from real 2025 P5 year-end exams, with a try-it-yourself reveal flow: wrong once unlocks pinyin, wrong twice unlocks the answer and explanation.">
+  <meta name="description" content="P5 Chinese Language mock paper — 2 cloze passages (10 blanks) from real 2025 P5 year-end exams, with a try-it-yourself reveal flow: wrong twice (or right first try) unlocks the answer and explanation.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,7 +131,7 @@
     <header class="hero">
       <span class="eyebrow">🀄 Chinese Mock Paper · 短文填空</span>
       <h1>P5 CL 短文填空高难度模拟卷</h1>
-      <p>2 real past-year cloze passages (10 blanks total) from 2025 P5 year-end exams. Try each blank — get it wrong once and a pinyin hint unlocks; get it wrong twice (or right first try) and the full answer + explanation unlocks.</p>
+      <p>2 real past-year cloze passages (10 blanks total) from 2025 P5 year-end exams. Try each blank — get it wrong twice (or right first try) and the full answer + explanation unlocks.</p>
     </header>
 
     <section class="card">
@@ -172,54 +172,44 @@
 const GROUP1 = [
 { source:"南华小学 Q31", text:"那是我第一次离开家人，___参加那么久的活动。",
   options:["独自","顺利","坚持","配合"], correct:1,
-  hint:"独自 (dú zì) — alone/by oneself",
   explain:"独自 (dú zì, alone/by oneself) — it was her first time away from family for a 3-day camp, so she had to participate alone. Not 顺利 (shùn lì, smoothly), 坚持 (jiān chí, persist), or 配合 (pèi hé, cooperate)." },
 
 { source:"南华小学 Q32", text:"但那一次的露营经历却让我更加___和同学在一起的时光。",
   options:["满意","习惯","珍惜","盼望"], correct:3,
-  hint:"珍惜 (zhēn xī) — to cherish/treasure",
   explain:"珍惜 (zhēn xī, to cherish/treasure) — being away made her appreciate time with classmates more. Not 满意 (mǎn yì, satisfied), 习惯 (xí guàn, get used to), or 盼望 (pàn wàng, look forward to)." },
 
 { source:"南华小学 Q33", text:"跳伞表演、海陆空三军表演、大型歌舞节目、___的烟花……",
   options:["精彩万分","五彩缤纷","兴高采烈","整整齐齐"], correct:1,
-  hint:"精彩万分 (jīng cǎi wàn fēn) — extremely wonderful",
   explain:"精彩万分 (jīng cǎi wàn fēn, extremely wonderful) describes the spectacular National Day fireworks. Not 五彩缤纷 (wǔ cǎi bīn fēn, colourful — for objects), 兴高采烈 (xìng gāo cǎi liè, in high spirits — for people's mood), or 整整齐齐 (zhěng zhěng qí qí, neat and tidy)." },
 
 { source:"南华小学 Q34", text:"当课本上写的场景真实地出现我面前时，我为新加坡感到___。",
   options:["幸福","激动","惊奇","骄傲"], correct:4,
-  hint:"骄傲 (jiāo ào) — proud",
   explain:"骄傲 (jiāo ào, proud) — seeing scenes from textbooks come alive made her feel proud of Singapore. Not 幸福 (xìng fú, happy/blessed), 激动 (jī dòng, excited), or 惊奇 (jīng qí, surprised)." },
 
 { source:"南华小学 Q35", text:"五年级___就要过去了，这一年非常充实。",
   options:["一转身","一回头","一抬手","一眨眼"], correct:4,
-  hint:"一眨眼 (yì zhǎ yǎn) — in the blink of an eye",
   explain:"一眨眼 (yì zhǎ yǎn, in the blink of an eye) — the year passed quickly. Not 一转身 (yì zhuǎn shēn, turning around), 一回头 (yì huí tóu, looking back), or 一抬手 (yì tái shǒu, raising a hand)." }
 ];
 
 const GROUP2 = [
 { source:"南洋小学 Q36", text:"为了___她和同学们争吵，妈妈不断地提醒她要多为别人着想。",
   options:["禁止","停止","阻止","防止"], correct:4,
-  hint:"防止 (fáng zhǐ) — to prevent",
   explain:"防止 (fáng zhǐ, to prevent) — mom wanted to prevent arguments before they happened. Not 禁止 (jìn zhǐ, to forbid/ban), 停止 (tíng zhǐ, to stop something ongoing), or 阻止 (zǔ zhǐ, to stop someone from doing something)." },
 
 { source:"南洋小学 Q37", text:"大家一起玩，一起训练，生活过得既___又开心。",
   options:["充足","充实","充分","充满"], correct:2,
-  hint:"充实 (chōng shí) — fulfilling",
   explain:"充实 (chōng shí, fulfilling) — her life was full and meaningful with friends and training. Not 充足 (chōng zú, sufficient — for quantities), 充分 (chōng fèn, adequate — for preparation), or 充满 (chōng mǎn, filled with — needs an object after)." },
 
 { source:"南洋小学 Q38", text:"同学对她这种自私的行为很不满，便纷纷与她___距离。",
   options:["保持","避开","减少","制造"], correct:2,
-  hint:"避开 (bì kāi) — to avoid/keep away from",
   explain:"避开 (bì kāi, to avoid/keep away from) — classmates kept their distance from her selfish behaviour. Not 保持 (bǎo chí, maintain), 减少 (jiǎn shǎo, reduce), or 制造 (zhì zào, create)." },
 
 { source:"南洋小学 Q39", text:"丽文这才开始思考妈妈之前说过的话，她___明白妈妈是为了她好。",
   options:["曾经","终于","此后","永远"], correct:2,
-  hint:"终于 (zhōng yú) — finally/at last",
   explain:"终于 (zhōng yú, finally/at last) — she finally understood mom's words after experiencing the consequences. Not 曾经 (céng jīng, once/used to), 此后 (cǐ hòu, since then), or 永远 (yǒng yuǎn, forever)." },
 
 { source:"南洋小学 Q40", text:"想到这里，她的视线开始___了，眼泪不由自主地流了下来。",
   options:["昏暗","模糊","劳累","下降"], correct:2,
-  hint:"模糊 (mó hu) — blurry",
   explain:"模糊 (mó hu, blurry) — her vision became blurry from tears. Not 昏暗 (hūn àn, dim — for lighting), 劳累 (láo lèi, tired), or 下降 (xià jiàng, decline)." }
 ];
 
@@ -257,7 +247,9 @@ function renderGroup(rootId, questions, startNum) {
     const hintBox = document.createElement('div');
     hintBox.className = 'hint-box';
     hintBox.style.display = 'none';
-    hintBox.innerHTML = `💡 拼音提示： <strong>${q.hint}</strong>`;
+    hintBox.innerHTML = q.hint
+      ? `💡 拼音提示： <strong>${q.hint}</strong>`
+      : `🤔 再想想，还有一次机会！`;
 
     const answerBox = document.createElement('div');
     answerBox.className = 'answer-box';
